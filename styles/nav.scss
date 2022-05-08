@@ -19,28 +19,29 @@ storybusterslogo {
 
 #leftbox {
   margin: 1.5em;
-  display:flex;
-  align-items: center;
   float:left;
-  // background:rgb(241, 238, 238);
-  width:25%;
+  width:30%;
   height:300px;
 }
 #middlebox{
-  display:flex;
   float:left;
-  // background:Green;
-  width:25%;
+  width:30%;
   height:300px;
 }
 #rightbox{
-  display:flex;
   float:right;
-  // background:blue;
-  width:25%;
+  width:30%;
   height:300px;
 }
 h1{
   text-align:center;
+  font-family:"Squada One";
 }
 
+container {
+  width:90%;
+  height:200px;
+  padding-top:20px;
+  padding-left:10px;
+  padding-right:10px;
+}
