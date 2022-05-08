@@ -2,9 +2,8 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -12,50 +11,18 @@ nav {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  height: 100px;
+  height: 120px;
   width: 100vw;
   position: fixed;
   top: 0;
-  background-color: #b2c2f7;
+  background-color: #9bade5;
   color: #ffffff;
   z-index: 1;
 }
 
-storybusterslogo {
+#storybusterslogo {
   margin: 1.5em;
-  font-size: 20em;
+  font-size: 2em;
   font-family: "Abril Fatface", sans-serif;
-}
-
-#leftbox {
-  margin: 1.5em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  float: left;
-  width: 25%;
-  height: 300px;
-}
-
-#middlebox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  float: left;
-  width: 25%;
-  height: 300px;
-}
-
-#rightbox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  float: right;
-  width: 25%;
-  height: 300px;
-}
-
-h1 {
-  text-align: center;
 }
 /*# sourceMappingURL=nav.css.map */
