@@ -1,0 +1,19 @@
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: row wrap;
+	height: 120px;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	background-color: #b2c2f7;
+	color: #ffffff;
+	z-index: 1;
+}
+storybusterslogo {
+	margin: 1.5em;
+	font-size: 15em;
+	font-family: "Abril Fatface", sans-serif;
+}
+

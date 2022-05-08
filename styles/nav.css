@@ -1,0 +1,42 @@
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  height: 120px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #b2c2f7;
+  color: #ffffff;
+  z-index: 1;
+}
+
+storybusterslogo {
+  margin: 1.5em;
+  font-size: 10em;
+  font-family: "Abril Fatface", sans-serif;
+}
+
+caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  margin: .1em;
+  font-size: .8em;
+  margin-bottom: .5em;
+}
+/*# sourceMappingURL=nav.css.map */

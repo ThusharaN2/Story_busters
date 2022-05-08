@@ -6,37 +6,29 @@
 <title>Story-Busters Home page</title>
 
  <!--App CSS-->
- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
- <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
- <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+ <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> <!--normalize-->
+ <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> <!--border-box-->
+ <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> <!--layout-->
+ <link rel="stylesheet" href="/styles/main.css" type="text/css" /> <!--main-->
+ <link rel="stylesheet" href="/styles/nav.css" type="text/css"/> <!--nav-->
 
  <!-- Fonts -->
  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"> <!--Abril Fatface-->
  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Luckiest+Guy&display=swap" rel="stylesheet"> <!--Luckiest Guy-->
+ <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet"> <!--Squada One-->
 
- <!-- Bootstrap core CSS -->
- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <!--External JS-->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script> <!--jquery-->
+  <script type="text/javascript" src="/scripts/app.js"></script> <!--app.js-->
 </head>
 
-<body>
- 
+<%- include('partials/_header') %>
 
-  <nav class="nav">
-    <span class="story-busters-logo" style="font-family:Abril Fatface">Story Busters</span>
-    <div class='write-right'>
-      <span class='write-tweet'>Test 1 2 3</span>
-      <i id= "arrow" class="fas fa-angle-double-down icon"></i>
-    </div>
-    </nav>
+<body>
+  <h1>Take a look at our stories</h1>
 </body>
 
 </html>
