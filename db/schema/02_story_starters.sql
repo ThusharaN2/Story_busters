@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS story_starters CASCADE;
+
+CREATE TABLE story_starters (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  initial_content TEXT
+  );
