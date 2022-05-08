@@ -22,7 +22,7 @@ const listUsers = function() {
 
 }
 
-// listUsers()
+listUsers()
 
 
 //function that finds user object by username
@@ -43,9 +43,9 @@ const findUserByUsername = function(username) {
 
 
 //function that fetches all data from the stories. Prints ALL stories
-const fetchStories = function() {
+const fetchStoryDrafts = function() {
   return pool
-  .query(`SELECT * FROM story_starters;`)
+  .query(`SELECT * FROM story_drafts;`)
   .then((result) => {
     console.log(result.rows)
   })
@@ -55,18 +55,35 @@ const fetchStories = function() {
   })
 }
 
-fetchStories();
+// fetchStoryDrafts();
 
-// Function that fetches story_snippet_options object by story_id
+
+
+//function that fetches all data from the stories. Prints ALL stories
+const fetchFinalStories = function() {
+  return pool
+  .query(`SELECT * FROM final_stories;`)
+  .then((result) => {
+    console.log(result.rows)
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+}
+
+// fetchFinalStories();
+
+// Function that fetches proposed additions by story_id
 //lists "maybe" story options for each unfinished story
 //most recent is first
 const findStoryMaybes = function(storyID) {
   return pool
   .query(`
-  SELECT story_snippet_options.id, contributor_id, story_snippet_text, story_id, name, story_starters.user_id, initial_content
-  FROM story_snippet_options
-  JOIN story_starters ON story_starters.id = story_id
-  WHERE story_id = ${storyID} ORDER BY story_snippet_options.id DESC`)
+  SELECT proposed_additions.id, contributor_id, additional_text, story_id, name, story_drafts.user_id, content
+  FROM proposed_additions
+  JOIN story_drafts ON story_drafts.id = story_id
+  WHERE story_id = ${storyID} ORDER BY proposed_additions.id DESC`)
   .then((result) => {
     console.log(result.rows)
   })
@@ -76,10 +93,25 @@ const findStoryMaybes = function(storyID) {
   })
 }
 
-// findStoryMaybes(1)
+// findStoryMaybes(3)
+
+
+const addUserToDatabase = function(personName, personEmail) {
+  return pool
+  .query (`INSERT INTO users (name, email) VALUES ('${personName}', '${personEmail}');`)
+  .then((result) => {
+    console.log('added values to database')
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+
+
+}
+
+// addUserToDatabase("Samantha", "email" )
 
 
 
-
-
-module.exports = { listUsers, findUserByUsername, fetchStories }
+module.exports = { listUsers, findUserByUsername, fetchStoryDrafts, fetchFinalStories, addUserToDatabase, findStoryMaybes }

@@ -12,7 +12,7 @@ const pool = new Pool({
 //might not need, but made it along the way
 const selectMainContent = function(mainStoryID) {
   return pool
-  .query(`SELECT initial_content FROM story_starters WHERE id = ${mainStoryID}`)
+  .query(`SELECT content FROM story_drafts WHERE id = ${mainStoryID}`)
   .then((result) => {
     console.log(result.rows)
   })
@@ -23,13 +23,13 @@ const selectMainContent = function(mainStoryID) {
 
 }
 
-selectMainContent(3)
+// selectMainContent(3)
 
 
 //might not need, but made it along the way
 const selectWinningText = function(snippetID) {
   return pool
-  .query(`SELECT story_snippet_text FROM story_snippet_options WHERE id = ${snippetID}`)
+  .query(`SELECT additional_text FROM proposed_additions WHERE id = ${snippetID}`)
   .then((result) => {
     console.log(result.rows)
   })
@@ -39,22 +39,22 @@ const selectWinningText = function(snippetID) {
   })
 }
 
-selectWinningText(8)
+// selectWinningText(8)
 
 
 //adds approved string to the main story string
 const addWinningTextToDatabase = function(mainStoryID, snippetID) {
   return pool
   .query(`
-  UPDATE story_starters
-  SET initial_content = CONCAT(initial_content, ' ', (
-    SELECT story_snippet_text
-    FROM story_snippet_options
-    WHERE story_snippet_options.id = ${snippetID}))
-  WHERE story_starters.id = ${mainStoryID};
+  UPDATE story_drafts
+  SET content = CONCAT(story_drafts.content, ' ', (
+    SELECT additional_text
+    FROM proposed_additions
+    WHERE proposed_additions.id = ${snippetID}))
+  WHERE story_drafts.id = ${mainStoryID};
   `)
   .then((result) => {
-    console.log('Added text from story_snippet_options.id', snippetID, 'to story_starters.id', mainStoryID)
+    console.log('Added text from proposed_additions.id', snippetID, 'story_drafts.id', mainStoryID)
 
   })
   .catch((err) => {
