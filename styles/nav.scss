@@ -1,0 +1,44 @@
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: row wrap;
+	height: 120px;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	background-color: #b2c2f7;
+	color: #ffffff;
+	z-index: 1;
+}
+storybusterslogo {
+	margin: 1.5em;
+	font-size: 15em;
+	font-family: "Abril Fatface", sans-serif;
+}
+
+#leftbox {
+  margin: 1.5em;
+  // display:flex;
+  // align-items: center;
+  float:left;
+  width:25%;
+  height:300px;
+}
+#middlebox{
+  // display:flex;
+  float:left;
+  width:25%;
+  height:300px;
+}
+#rightbox{
+  // display:flex;
+  float:right;
+  width:25%;
+  height:300px;
+}
+h1{
+  text-align:center;
+  font-family: "Squada One", sans-serif;
+}
+

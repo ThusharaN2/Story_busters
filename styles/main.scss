@@ -1,6 +1,7 @@
 body {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
 
@@ -14,4 +15,11 @@ body {
     rgba(163, 208, 219, 1) 74%,
     rgba(163, 208, 219, 1) 100%
   );
+}
+nav
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	flex-flow: row wrap;
 }
