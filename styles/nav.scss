@@ -17,3 +17,30 @@ storybusterslogo {
 	font-family: "Abril Fatface", sans-serif;
 }
 
+#leftbox {
+  margin: 1.5em;
+  display:flex;
+  align-items: center;
+  float:left;
+  // background:rgb(241, 238, 238);
+  width:25%;
+  height:300px;
+}
+#middlebox{
+  display:flex;
+  float:left;
+  // background:Green;
+  width:25%;
+  height:300px;
+}
+#rightbox{
+  display:flex;
+  float:right;
+  // background:blue;
+  width:25%;
+  height:300px;
+}
+h1{
+  text-align:center;
+}
+
