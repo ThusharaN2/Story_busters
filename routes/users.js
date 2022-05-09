@@ -22,10 +22,10 @@ module.exports = (db) => {
       });
   });
   router.get("/login", (req, res) => {
-    db.query(`SELECT users.email FROM users;`)
+    db.query(`SELECT users.email, users.password FROM users;`)
       .then(data => {
-        const email = data.columns;
-        res.render("login", email);
+        const email = data.rows;
+        res.render("login");
         // res.status(200).send("login path is working");
       })
       .catch(err => {
@@ -35,7 +35,7 @@ module.exports = (db) => {
       });
   });
   router.get("/register", (req, res) => {
-    console.log("here is the issuse");
+  
         res.render("register");
         // redirect to /users/profile
   });
