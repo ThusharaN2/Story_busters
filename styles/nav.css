@@ -21,7 +21,7 @@ nav {
   z-index: 1;
 }
 
-.nav-link {
+.a.nav-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
