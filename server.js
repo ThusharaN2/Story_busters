@@ -42,9 +42,9 @@ app.use(
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
-app.use("/api/users/login", loginRoutes(db));
-app.use("/api/users/register", registerRoutes(db));
+app.use("/api/widgets", widgetsRoutes(db)); //rem
+app.use("/api/users/login", loginRoutes(db)); //rem
+app.use("/api/users/register", registerRoutes(db)); //rem
 // app.use("/api/home", homeRoutes(db));
 // Note: mount other resources here, using the same pattern above
 

@@ -2,102 +2,96 @@
 <html lang="en">
 
 <head>
-<!-- Meta Information -->
-<title>Story-Busters Home page</title>
+  <!-- Meta Information -->
+  <title>Story-Busters Home page</title>
 
- <!--App CSS-->
- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> <!--normalize-->
- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> <!--border-box-->
- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> <!--layout-->
- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> <!--main-->
- <link rel="stylesheet" href="/styles/nav.css" type="text/css"/> <!--nav-->
- <link rel="stylesheet" href="/styles/stories.css" type="text/css"/> <!--stories-->
+  <!--External CSS-->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
- <!--Animation CSS-->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> <!--animate.css-->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Luckiest+Guy&display=swap&family=Squada+One&display=swap"
+    rel="stylesheet">
 
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/stories.css" type="text/css" />
 
- <!-- Fonts -->
- <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"> <!--Abril Fatface-->
- <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Luckiest+Guy&display=swap" rel="stylesheet"> <!--Luckiest Guy-->
- <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet"> <!--Squada One-->
-
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <!--External JS-->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script> <!--jquery-->
-  <script type="text/javascript" src="/scripts/app.js"></script> <!--app.js-->
+  <!--External JS-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    
+  <!--Custom JS-->
+  <script defer type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
   <div>
-        <img class= "above-header"src="https://thumbs.gfycat.com/EachNeglectedGoldfinch-size_restricted.gif">
+    <img class="above-header" src="https://thumbs.gfycat.com/EachNeglectedGoldfinch-size_restricted.gif">
+  </div>
+  <%- include('partials/_header') %>
+
+    <h1 class="page-title"> Take a look at our stories</h1>
+
+    <div id="boxes">
+      <br>
+      <div class="container">
+        <div class="storybox">
+          <h2>Story 1</h2>
+          I made the perfect you in my head
+          Cause physically you are the blueprint
+          But internally, well damn you're a mess
+          So to stay with you I had to imagine
+
+          That he is perfect
+          Anything I give him, he deserves it
+          Rarely does he ever come to see me
+          But anytime he does he makes it worth it
+          Like I earned it
+        </div>
+
+        <div class="storybox">
+          <h2>Story 2</h2>
+          Truth is I'm dishonest
+          'Cause I'm always scared to get too deep
+          Truth is that I want this
+          'Cause I always see you in my sleep
+          Truth is that I love you, mm
+          Even when I'm trying not to
+        </div>
+
+        <div class="storybox">
+          <h2>Story 3</h2>
+          If we could live in this moment
+          And just hold it
+          Keep my head on your chest
+          I'll never leave this bed
+
+          The flowers will be blooming
+          The leaves will be turning
+          And snow will be falling
+          While we're making love
+          And the sun will be shining
+          The flowers still are blooming
+          Then leaves will turn again
+        </div>
+      </div>
     </div>
-  <header>
-    <%- include('partials/_header') %>
-
-    <br>
-    <div>
-</header>
-  <br>
-
-  <h1 class = "page-title"> Take a look at our stories</h1>
-
-  <div id = "boxes">
-<br>
-<div class="container">
-  <div class = "storybox">
-      <h2>Story 1</h2>
-      I made the perfect you in my head
-      Cause physically you are the blueprint
-      But internally, well damn you're a mess
-      So to stay with you I had to imagine
-
-      That he is perfect
-      Anything I give him, he deserves it
-      Rarely does he ever come to see me
-      But anytime he does he makes it worth it
-      Like I earned it
-  </div>
-
-  <div class = "storybox">
-      <h2>Story 2</h2>
-      Truth is I'm dishonest
-'Cause I'm always scared to get too deep
-Truth is that I want this
-'Cause I always see you in my sleep
-Truth is that I love you, mm
-Even when I'm trying not to
-  </div>
-
-  <div class = "storybox">
-      <h2>Story 3</h2>
-      If we could live in this moment
-      And just hold it
-      Keep my head on your chest
-      I'll never leave this bed
-
-      The flowers will be blooming
-      The leaves will be turning
-      And snow will be falling
-      While we're making love
-      And the sun will be shining
-      The flowers still are blooming
-      Then leaves will turn again
-  </div>
-</div>
-</div>
-
-
-
-
-  <!-- <p><label for="title-story">Teneessee</label></p>
-  <textarea id="story-box" name="story-box">
-  There's an old saying in Tennessee, I know it's in Texas, probably in Tennessee,
-     that says, fool me once, shame on...shame on you. Fool me, you can't get fooled
-      again</textarea> -->
 </body>
 
 </html>
