@@ -49,6 +49,7 @@ app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/add-to-stories", addToStoriesRoutes(db));
 
+
 // app.use("/api/home", homeRoutes(db));
 // Note: mount other resources here, using the same pattern above
 

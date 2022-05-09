@@ -1,23 +1,19 @@
-const express = require('express');
-const router  = express.Router();
+router.get("/login", (req, res) => {
+  db.query(`SELECT users.email, users.password FROM users;`)
+    .then(data => {
+      const email = data.rows;
+      res.render("login");
+      // res.status(200).send("login path is working");
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 
-
-
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT users.email FROM users;`)
-      .then(data => {
-        const email = data.columns;
-        res.render("login");
-        // res.status(200).send("login path is working");
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-  // router.get("/apple", (req, res) => {
+//login post
+ // router.get("/apple", (req, res) => {
   //   return res.send("im an apple");
   // });
   // router.post("/", (req, res) => {
@@ -39,18 +35,3 @@ module.exports = (db) => {
   //         .json({ error: err.message });
   //     });
   // });
-  return router;
-};
-
-
-
-// app.get("/login", (req, res) => {
-//   //if user redirect to the users
-//   res.render("/login");
-// });
-// app.post("/login", (req, res) => {
-//   //if password AND email are incorrect then redirect to the register page.
-//   //if user info is found in database then redirect to users.
-//   // if user not found in database return error msg "User not found. Please Register" (then maybe redirect)
-//   // if user is found but pw is wrong return error message "wrong password"
-// });
