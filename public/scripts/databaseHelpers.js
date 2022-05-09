@@ -22,7 +22,7 @@ const listUsers = function() {
 
 }
 
-listUsers()
+// listUsers()
 
 
 //function that finds user object by username
@@ -42,10 +42,10 @@ const findUserByUsername = function(username) {
 // findUserByUsername('Kira')
 
 
-//function that fetches all data from the stories. Prints ALL stories
+//function that fetches the unfinished stories
 const fetchStoryDrafts = function() {
   return pool
-  .query(`SELECT * FROM story_drafts;`)
+  .query(`SELECT * FROM stories WHERE is_complete = false;`)
   .then((result) => {
     console.log(result.rows)
   })
@@ -59,10 +59,10 @@ const fetchStoryDrafts = function() {
 
 
 
-//function that fetches all data from the stories. Prints ALL stories
+//function that fetches all data from the completed stories
 const fetchFinalStories = function() {
   return pool
-  .query(`SELECT * FROM final_stories;`)
+  .query(`SELECT * FROM stories WHERE is_complete = true;`)
   .then((result) => {
     console.log(result.rows)
   })
@@ -80,9 +80,9 @@ const fetchFinalStories = function() {
 const findStoryMaybes = function(storyID) {
   return pool
   .query(`
-  SELECT proposed_additions.id, contributor_id, additional_text, story_id, name, story_drafts.user_id, content
+  SELECT proposed_additions.id, contributor_id, additional_text, story_id, name, stories.user_id, content
   FROM proposed_additions
-  JOIN story_drafts ON story_drafts.id = story_id
+  JOIN stories ON stories.id = story_id
   WHERE story_id = ${storyID} ORDER BY proposed_additions.id DESC`)
   .then((result) => {
     console.log(result.rows)
@@ -149,5 +149,40 @@ const upvote = function(proposedAdditionID) {
 // upvote(2)
 
 
+const markComplete = function(storyID) {
+  return pool
+  .query (`UPDATE stories SET is_complete = true WHERE id = ${storyID};`)
+  .then((result) => {
+    console.log('marked story complete')
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+}
 
-module.exports = { listUsers, findUserByUsername, fetchStoryDrafts, fetchFinalStories, addUserToDatabase, findStoryMaybes, addProposedAddition, upvote }
+// markComplete(1);
+
+
+//function that adds story to database and removes from another
+//THIS MIGHT BE DIFFICULT TO IMPLEMENT??
+//KEEPING IN CASE I REVERT THIS DECISION
+// const markCompleteTableShuffle = function(storyDraftID, storyDraftContent, storyDraftTitle, userID) {
+//   return pool
+//   .query (`DELETE FROM stories WHERE id = ${storyDraftID}; INSERT INTO final_stories (name, content, user_id) VALUES ('${storyDraftTitle}', '${storyDraftContent}', ${userID})`)
+//   .then((result) => {
+//     console.log('added likes to database')
+//   })
+//   .catch((err) => {
+//     console.log(err.message);
+//     return null;
+//   })
+
+// }
+
+// markCompleteTableShuffle(4, 'This is the whole story', 'My Story', 3)
+
+
+
+
+module.exports = { listUsers, findUserByUsername, fetchStoryDrafts, fetchFinalStories, addUserToDatabase, findStoryMaybes, addProposedAddition, upvote, markComplete }
