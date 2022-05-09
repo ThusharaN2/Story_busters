@@ -32,4 +32,8 @@ nav {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
 }
+
+#page-title {
+  font-family: "Squada One";
+}
 /*# sourceMappingURL=main.css.map */

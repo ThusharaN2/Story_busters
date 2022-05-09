@@ -12,9 +12,14 @@ nav {
 	z-index: 1;
 }
 
+.navbarSupportedContent {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family:"Squada One";
+}
 
-
-.nav-link {
+a.nav-link {
   display:flex;
   justify-content: space-around;
   align-items: center;
