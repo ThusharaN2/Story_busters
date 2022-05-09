@@ -1,6 +1,6 @@
 nav {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	flex-flow: row wrap;
 	height: 120px;
@@ -12,9 +12,15 @@ nav {
 	z-index: 1;
 }
 
+.a.nav-link {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  }
+
 #storybusterslogo {
 	margin: 1.5em;
-	font-size: 2em;
+	font-size: 3.5em;
 	font-family: "Abril Fatface", sans-serif;
 }
 
