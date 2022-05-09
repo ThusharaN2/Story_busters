@@ -12,7 +12,7 @@ const pool = new Pool({
 //might not need, but made it along the way
 const selectMainContent = function(mainStoryID) {
   return pool
-  .query(`SELECT content FROM story_drafts WHERE id = ${mainStoryID}`)
+  .query(`SELECT content FROM stories WHERE id = ${mainStoryID}`)
   .then((result) => {
     console.log(result.rows)
   })
@@ -46,15 +46,15 @@ const selectWinningText = function(snippetID) {
 const addWinningTextToDatabase = function(mainStoryID, snippetID) {
   return pool
   .query(`
-  UPDATE story_drafts
-  SET content = CONCAT(story_drafts.content, ' ', (
+  UPDATE stories
+  SET content = CONCAT(stories.content, ' ', (
     SELECT additional_text
     FROM proposed_additions
     WHERE proposed_additions.id = ${snippetID}))
-  WHERE story_drafts.id = ${mainStoryID};
+  WHERE stories.id = ${mainStoryID};
   `)
   .then((result) => {
-    console.log('Added text from proposed_additions.id', snippetID, 'story_drafts.id', mainStoryID)
+    console.log('Added text from proposed_additions.id', snippetID, 'stories.id', mainStoryID)
 
   })
   .catch((err) => {
@@ -65,7 +65,7 @@ const addWinningTextToDatabase = function(mainStoryID, snippetID) {
 }
 
 
-addWinningTextToDatabase(1, 6)
+// addWinningTextToDatabase(1, 6)
 
 
 module.exports = { selectMainContent, selectWinningText, addWinningTextToDatabase }

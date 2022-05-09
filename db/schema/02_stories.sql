@@ -1,8 +1,9 @@
-DROP TABLE IF EXISTS story_drafts CASCADE;
+DROP TABLE IF EXISTS stories CASCADE;
 
-CREATE TABLE story_drafts (
+CREATE TABLE stories (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  content TEXT
-  );
+  content TEXT,
+  is_complete BOOLEAN DEFAULT FALSE
+);
