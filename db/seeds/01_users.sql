@@ -1,7 +1,7 @@
 -- Users table seeds here (Example)
-INSERT INTO users (name, email) VALUES ('Alice', 'alice@memail.com');
-INSERT INTO users (name, email) VALUES ('Kira', 'kira@memail.com');
-INSERT INTO users (name, email) VALUES ('Frank', 'frank@memail.com');
-INSERT INTO users (name, email) VALUES ('Bob', 'bob@memail.com');
-INSERT INTO users (name, email) VALUES ('Suzanne', 'suzanne@memail.com');
+INSERT INTO users (name, email, password) VALUES ('Alice', 'alice@memail.com', '123');
+INSERT INTO users (name, email, password) VALUES ('Kira', 'kira@memail.com', '123');
+INSERT INTO users (name, email, password) VALUES ('Frank', 'frank@memail.com', '123');
+INSERT INTO users (name, email, password) VALUES ('Bob', 'bob@memail.com', '123');
+INSERT INTO users (name, email, password) VALUES ('Suzanne', 'suzanne@memail.com', '123');
 
