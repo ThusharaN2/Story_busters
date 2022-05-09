@@ -11,6 +11,7 @@
  <link rel="stylesheet" href="/styles/main.css" type="text/css" /> <!--main-->
  <link rel="stylesheet" href="/styles/nav.css" type="text/css"/> <!--nav-->
 
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -18,24 +19,23 @@
   </head>
 
   <body>
-    <%- include('partials/_header') %>
-    <main style="margin: 1em;" class="align-items-center">
-      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
+      <%- include('partials/_header') %>
+
+    <main>
+      <h1 class = "page-title">Register</h1>
       <form class="mx-1 mx-md-4 d-flex justify-content-center" action="/register" method="POST">
+        <div class="container">
 
-        <div class="mb-4">
-          <div class="form-outline mb-0">
-            <label for="email" class="align-items-center">Email</label>
-            <input type="email" name="email" placeholder="Email"/>
-          </div>
+    <p>Please fill in your information to create an account.</p>
+    <hr>
 
-          <div class="form-outline mb-0">
-            <label for="password"  class="align-items-center"style="margin-top: 2em">Password</label>
-            <input type="password" name="password" placeholder="Password">
-          </div>
-          <button type="submit" class="bten bten-primary" style="margin-top: 2em">Register</button>
+    <label for="users.email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="users.email" id="users.email" required>
 
-        </div>
+    <label for="users.password"><b>Password</b></label>
+    <input type="users.password" placeholder="Enter Password" name="users.password" id="users.password" required>
+    <button type="submit">Register</button>
+</div>
       </form>
     </main>
 
