@@ -1,16 +1,7 @@
-#leftbox {
-  margin: 1.5em;
-  width: 30%;
-  height: 300px;
-}
-
-#middlebox {
-  width: 30%;
-  height: 300px;
-}
-
-#rightbox {
-  width: 30%;
+.storybox {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   height: 300px;
 }
 
@@ -28,5 +19,6 @@ h1 {
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
+  gap: 20px;
 }
 /*# sourceMappingURL=stories.css.map */
