@@ -21,13 +21,17 @@
 
     <h1>Login to join the rest of us!</h1>
     <form class="form-inline" action="/login" method="POST">
-      <div class="form-group mb-2">
-        <label for="user-email">Enter your email:</label>
-        <input class="form-control" type="user.email" name="users.email" placeholder="users.email"style="width: 300px; margin: 1em">
-        <label for="Password">Enter your password here:</label>
-        <input class="form-control" type="users.password" name="users.password" style="width: 300px; margin: 1em">
-        <button type="submit" class="btn btn-primary">Login</button>
+      <div class="container">
+        <label for="users.email"><b>User Email</b></label>
+        <input type="text" placeholder="Enter User Email" name="users.email" required>
+        <label for="users.password"><b>Password</b></label>
+        <input type="users.password" placeholder="Enter Password" name="users.password" required>
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
       </div>
     </form>
   </body>
 </html>
+
