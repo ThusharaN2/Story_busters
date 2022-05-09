@@ -42,7 +42,7 @@ const findUserByUsername = function(username) {
 // findUserByUsername('Kira')
 
 
-//function that fetches the unfinished stories
+//function that fetches all the story drafts
 const fetchStoryDrafts = function() {
   return pool
   .query(`SELECT * FROM stories WHERE is_complete = false;`)
@@ -59,7 +59,7 @@ const fetchStoryDrafts = function() {
 
 
 
-//function that fetches all data from the completed stories
+//function that fetches all the completed stories
 const fetchFinalStories = function() {
   return pool
   .query(`SELECT * FROM stories WHERE is_complete = true;`)
@@ -75,8 +75,8 @@ const fetchFinalStories = function() {
 // fetchFinalStories();
 
 // Function that fetches proposed additions by story_id
-//lists "maybe" story options for each unfinished story
 //most recent is first
+
 const findStoryMaybes = function(storyID) {
   return pool
   .query(`
@@ -96,6 +96,7 @@ const findStoryMaybes = function(storyID) {
 // findStoryMaybes(3)
 
 
+//adds new user to the databse
 const addUserToDatabase = function(personName, personEmail) {
   return pool
   .query (`INSERT INTO users (name, email) VALUES ('${personName}', '${personEmail}');`)
@@ -149,6 +150,7 @@ const upvote = function(proposedAdditionID) {
 // upvote(2)
 
 
+//function that marks a story draft "complete"
 const markComplete = function(storyID) {
   return pool
   .query (`UPDATE stories SET is_complete = true WHERE id = ${storyID};`)
@@ -162,6 +164,71 @@ const markComplete = function(storyID) {
 }
 
 // markComplete(1);
+
+
+//function that finds all of a user's story drafts
+const findMyDrafts = function(userID) {
+  return pool
+  .query (`SELECT * FROM stories WHERE user_id = ${userID} AND is_complete = false;`)
+  .then((result) => {
+    console.log(result.rows)
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+}
+
+// findMyDrafts(2)
+
+
+//function that find's all of a user's completed stories
+const findMyCompletedStories = function(userID) {
+  return pool
+  .query (`SELECT * FROM stories WHERE user_id = ${userID} AND is_complete = true;`)
+  .then((result) => {
+    console.log(result.rows)
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+}
+
+
+// findMyCompletedStories(1);
+
+
+//function that finds all of a user's stories
+const findAllMyStories = function(userID) {
+  return pool
+  .query (`SELECT * FROM stories WHERE user_id = ${userID};`)
+  .then((result) => {
+    console.log(result.rows)
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+}
+
+// findAllMyStories(3)
+
+
+//function that creates a new story (adds a new story to the database)
+const createNewStory = function(userID, title, content) {
+  return pool
+  .query (`INSERT INTO stories (name, user_id, content) VALUES ('${title}', ${userID}, '${content}');`)
+  .then((result) => {
+    console.log('added values to database')
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+}
+
+// createNewStory(2, 'New Story', 'This is my new story. Want to add to it???')
 
 
 //function that adds story to database and removes from another
@@ -185,4 +252,4 @@ const markComplete = function(storyID) {
 
 
 
-module.exports = { listUsers, findUserByUsername, fetchStoryDrafts, fetchFinalStories, addUserToDatabase, findStoryMaybes, addProposedAddition, upvote, markComplete }
+module.exports = { listUsers, findUserByUsername, fetchStoryDrafts, fetchFinalStories, addUserToDatabase, findStoryMaybes, addProposedAddition, upvote, markComplete, findMyDrafts, findMyCompletedStories, findAllMyStories, createNewStory }
