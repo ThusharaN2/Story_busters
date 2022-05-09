@@ -8,7 +8,8 @@ module.exports = (db) => {
     db.query(`SELECT users.email FROM users;`)
       .then(data => {
         const email = data.columns;
-        res.status(200).send("login path is working");
+        res.render("login");
+        // res.status(200).send("login path is working");
       })
       .catch(err => {
         res
