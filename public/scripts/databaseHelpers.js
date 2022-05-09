@@ -112,6 +112,42 @@ const addUserToDatabase = function(personName, personEmail) {
 
 // addUserToDatabase("Samantha", "email" )
 
+//function that adds new proposed_addition
+const addProposedAddition = function(contributorID, storyID, text) {
+  return pool
+  .query (`INSERT INTO proposed_additions (contributor_id, additional_text, story_id) VALUES (${contributorID}, '${text}', ${storyID});`)
+  .then((result) => {
+    console.log('added values to database')
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
 
 
-module.exports = { listUsers, findUserByUsername, fetchStoryDrafts, fetchFinalStories, addUserToDatabase, findStoryMaybes }
+}
+
+// addProposedAddition(4, 3, "This is my new addition to the story.")
+
+
+
+//function that adds one vote
+const upvote = function(proposedAdditionID) {
+  return pool
+  .query (`UPDATE proposed_additions SET likes = likes + 1 WHERE id = ${proposedAdditionID};`)
+  .then((result) => {
+    console.log('added likes to database')
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  })
+
+
+}
+
+// upvote(2)
+
+
+
+module.exports = { listUsers, findUserByUsername, fetchStoryDrafts, fetchFinalStories, addUserToDatabase, findStoryMaybes, addProposedAddition, upvote }
