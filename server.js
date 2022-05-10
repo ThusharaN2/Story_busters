@@ -43,19 +43,13 @@ app.use(
   // Note: Feel free to replace the example routes below with your own
   const usersRoutes = require("./routes/users");
   const widgetsRoutes = require("./routes/widgets");
-  const loginRoutes = require("./routes/users");
-  const registerRoutes = require("./routes/users");
+  const loginRoutes = require("./routes/login");
+  const registerRoutes = require("./routes/register");
   const addToStoriesRoutes = require("./routes/addToStories");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-<<<<<<< HEAD
-app.use("/api/widgets", widgetsRoutes(db)); //rem
-app.use("/login", loginRoutes(db)); //rem
-app.use("/register", registerRoutes(db));
-// app.use("/home", homeRoutes(db));
-=======
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
@@ -63,7 +57,6 @@ app.use("/add-to-stories", addToStoriesRoutes(db));
 
 
 // app.use("/api/home", homeRoutes(db));
->>>>>>> 4de004446e09b11c51ed50083b05fcf8dc50ba5d
 // Note: mount other resources here, using the same pattern above
 
 // Home page
