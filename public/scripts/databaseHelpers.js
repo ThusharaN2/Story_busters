@@ -228,6 +228,7 @@ const createNewStory = function(userID, title, content) {
   })
 }
 
+
 // createNewStory(2, 'New Story', 'This is my new story. Want to add to it???')
 
 
