@@ -5,5 +5,6 @@ CREATE TABLE proposed_additions (
   contributor_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   additional_text TEXT,
   story_id INTEGER REFERENCES stories(id) ON DELETE CASCADE,
-  likes INTEGER DEFAULT 0
+  likes INTEGER DEFAULT 0,
+  is_used BOOLEAN DEFAULT FALSE
 );

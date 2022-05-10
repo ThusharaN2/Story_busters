@@ -43,13 +43,25 @@
   <body>
     <%- include('partials/_header') %>
 
-   <h1> Add to Stories: </h1>
+   <h1> My Bookshelf: </h1>
+   <h2>Have things to say?</h2>
+   <!-- Button not functional yet - will be href link! -->
+   <button name="make_new_story" type="submit">Make A New Story</button>
    <div>
+    <h2>Unfinished Stories:</h2>
      <div>
        <!-- Shows draft stories -->
    <% for(let draft in storyDrafts) { %>
+    <h3><%= storyDrafts[draft].name %> </h3>
         <%= storyDrafts[draft].content %>
         <div>______</div>
+        <div>
+          Is this story finished?
+          <!-- Button not functional yet - will be href link! -->
+          <button name="complete_story" type="submit">Mark It Complete!</button>
+        </div>
+        <div>______</div>
+        <h4>Want to add More?</h4>
       </div>
         <% for(let addition in proposedAdditions) { %>
           <% if (proposedAdditions[addition].story_id === storyDrafts[draft].id) { %>
@@ -57,21 +69,23 @@
             <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
             <%= proposedAdditions[addition].additional_text  %>
             <%= proposedAdditions[addition].likes %>
-            <!-- Upvote button....needs to share proposedAdditions[addition].id...it links the upvote to the proper snippet -->
+            <!-- Add button....needs to share proposedAdditions[addition].id and storyDrafts[draft].id...it links the add to the proper snippet -->
             <form action="" method="post">
-            <button name="upvote" type="submit" value="<%= proposedAdditions[addition].id %>">Upvote</button>
+            <button name="add" type="submit" value="<%= [ proposedAdditions[addition].id, storyDrafts[draft].id] %>">Add To Story</button>
             </form>
           </div>
 
           <% } %>
       <% } %>
       <div>____________________</div>
-       <!-- still need to decide what this does...can maybe just be an href link to a submit page? -->
-      Think you can write something better?
-        <button name="add_here" type="submit">Add here</button>
+        <h2>Completed Stories:</h2>
       <div>____________________</div>
       <% } %>
-
+      <% for(let story in completedStories) { %>
+        <h3><%= completedStories[story].name %> </h3>
+      <%= completedStories[story].content %>
+      <div>____________</div>
+      <% } %>
     </div>
   </body>
 </html>
