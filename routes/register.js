@@ -9,13 +9,10 @@ module.exports = (db) => {
     // redirect to /users/profile
   });
   router.post("/register", (req, res) => {
-    const { user } = req.body
-    console.log(user);
+    const { user } = req.body;
+    console.log(`here is the ${user}`);
   db.query(`INSERT INTO users (id, name, email, password) VALUES (${user.id}, ${user.name}, ${user.email}, ${user.password}};`)
-
-console.log(req.body);
-
-
+.then()
 // .then(data => {
 //  // const email = data.columns;
 //   res.redirect("users");
