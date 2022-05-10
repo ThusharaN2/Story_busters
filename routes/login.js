@@ -1,17 +1,28 @@
-router.get("/login", (req, res) => {
-  db.query(`SELECT users.email, users.password FROM users;`)
+const express = require('express');
+const router  = express.Router();
+
+
+
+module.exports = (db) => {
+  router.get("/", (req, res) => {
+    const { email, password } = req.body;
+    db.query(`SELECT users.email, users.password FROM users WHERE users.email = ${userEmail} AND users.password = ${userPassword}`)
     .then(data => {
-      const email = data.rows;
+
       res.render("login");
       // res.status(200).send("login path is working");
     })
     .catch(err => {
+      const user = getUserByEmail(email, users);
+      if (!email || !password) return res.status(401).send("Please Register");
+      if (user) return res.status(403).send('Account already exists.')
       res
-        .status(500)
-        .json({ error: err.message });
-    });
-});
+          .status(500)
 
+      });
+  });
+  return router;
+};
 //login post
  // router.get("/apple", (req, res) => {
   //   return res.send("im an apple");
