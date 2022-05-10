@@ -17,6 +17,12 @@ db.connect();
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+//  function logger(req, res, next) {
+//   console.log(req.originalUrl);
+//   next();
+// }
+
+// app.use(loggger);
 app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
@@ -43,9 +49,9 @@ app.use(
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db)); //rem
-app.use("/api/login", loginRoutes(db)); //rem
-app.use("/api/register", registerRoutes(db)); //rem
-// app.use("/api/home", homeRoutes(db));
+app.use("/login", loginRoutes(db)); //rem
+app.use("/register", registerRoutes(db));
+// app.use("/home", homeRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -53,9 +59,9 @@ app.use("/api/register", registerRoutes(db)); //rem
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("home"); //home ?
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.debug(`Example app listening on port ${PORT}`);
 });
