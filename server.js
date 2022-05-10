@@ -40,6 +40,7 @@ app.use(
   const loginRoutes = require("./routes/users");
   const registerRoutes = require("./routes/users");
   const addToStoriesRoutes = require("./routes/addToStories");
+  const myBookshelfRoutes = require("./routes/myBookshelf")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -48,7 +49,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", loginRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/add-to-stories", addToStoriesRoutes(db));
-
+app.use("/:id/my-bookshelf", myBookshelfRoutes(db));
 
 // app.use("/api/home", homeRoutes(db));
 // Note: mount other resources here, using the same pattern above
