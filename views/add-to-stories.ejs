@@ -15,5 +15,34 @@
 
   <body>
    <h1> Add to Stories: </h1>
+   <div>
+     <div>
+       <!-- Shows draft stories -->
+   <% for(let draft in storyDrafts) { %>
+        <%= storyDrafts[draft].content %>
+        <div>______</div>
+      </div>
+        <% for(let addition in proposedAdditions) { %>
+          <% if (proposedAdditions[addition].story_id === storyDrafts[draft].id) { %>
+            <div>
+            <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
+            <%= proposedAdditions[addition].additional_text  %>
+            <%= proposedAdditions[addition].likes %>
+            <!-- Upvote button....needs to share proposedAdditions[addition].id...it links the upvote to the proper snippet -->
+            <form action="" method="post">
+            <button name="upvote" type="submit" value="<%= proposedAdditions[addition].id %>">Upvote</button>
+            </form>
+          </div>
+
+          <% } %>
+      <% } %>
+      <div>____________________</div>
+       <!-- still need to decide what this does...can maybe just be an href link to a submit page? -->
+      Think you can write something better?
+        <button name="add_here" type="submit">Add here</button>
+      <div>____________________</div>
+      <% } %>
+
+    </div>
   </body>
 </html>
