@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,15 +49,15 @@
    <!-- Button not functional yet - will be href link! -->
    <a href="/create-new"> <button name="make_new_story" type="submit">Make a New Story</button> </a>
    <div>
-    <h2>Unfinished Stories:</h2>
+    <h2 class="subsection">Unfinished Stories:</h2>
      <div>
        <!-- Shows draft stories -->
    <% for(let draft in storyDrafts) { %>
-    <h3><%= storyDrafts[draft].name %> </h3>
+    <h3 style="font-family:Abril Fatface"><%= storyDrafts[draft].name %> </h3>
         <%= storyDrafts[draft].content %>
         <div>______</div>
         <div>
-          Is this story finished?
+          <a class="add-or-done">Is this story finished?</a>
           <!-- Button not functional yet - will be href link! -->
           <a id ="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button name="mark_complete" type="submit">Mark Complete</button> </a>
         </div>
@@ -78,14 +79,15 @@
           <% } %>
       <% } %>
       <div>____________________</div>
-        <h2>Completed Stories:</h2>
+        <h2 class= "subsection">Completed Stories:</h2>
       <div>____________________</div>
       <% } %>
+      <div class="completed">
       <% for(let story in completedStories) { %>
-        <h3><%= completedStories[story].name %> </h3>
-      <%= completedStories[story].content %>
-      <div>____________</div>
-      <% } %>
+        <h3 style="font-family:Abril Fatface"><%= completedStories[story].name  %> </h3>
+        <%= completedStories[story].content %>
+      </div>
+            <% } %>
     </div>
   </body>
 </html>

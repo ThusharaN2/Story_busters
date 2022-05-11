@@ -63,7 +63,14 @@ h1 {
   padding: 40px;
 }
 
-.wanttoadd {
+.add-or-done {
   font-family: "Squada One";
+}
+
+.subsection {
+  font-size: 30px;
+  background: -webkit-linear-gradient(#eee, #696ab1, pink);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 /*# sourceMappingURL=stories.css.map */
