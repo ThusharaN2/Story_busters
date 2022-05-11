@@ -1,42 +1,34 @@
 const express = require('express');
 const router = express.Router();
-const { findUserByEmailAndPass } = require('../dbHelpers/serverHelpers')
-// const cookieParser = require('cookie-parser')
-// const cookieSession = require('cookie-session')
+// const { findUserByEmailAndPass } = require('../dbHelpers/serverHelpers')
 
-
-// router.use(cookieParser());
-// router.use(cookieSession({
-//   name: 'UserID',
-//   keys: ["secret"],
-//   // Cookie Options
-//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
-// }))
 module.exports = (db) => {
   router.get("/", (req, res) => {
 
-    // const templateVars = {
-    //   username: req.cookies["username"],
-    // }
     res.render("login");
     // res.status(200).send("login path is working");
   });
 
   router.post("/", (req, res) => {
-    db.query(`SELECT * FROM users WHERE email = ? AND password = ?;`, email, password)
-      .then( user => {
-        const users = findUserByEmailAndPass(email, password);
-        console.log(users);
-        if (users) {
-          // req.session.userID = user.id;
+    const { email, password } = req.body;
+    db.query(`SELECT * FROM users WHERE email = $1 AND password = $2 LIMIT 1;`, [email, password])
+    .then(users => {
+        console.log(users.rows);
+        const user = users.rows[0];
+        // const users = findUserByEmailAndPass(email, password);
+        if (user) {
+          console.log(user);
+          // req.session.usersID = user.id;
+          res.cookie('user_id', user.id);
           res.redirect("/home");
         }
-        if (!users) {
+        if (!user) {
           res.send({ error: "error" })
         }
       })
       .catch(err => res.send(err));
   });
+  return router;
 };
     // .then((user) => {
       // const user = findUserByEmailAndPass(email, password);
