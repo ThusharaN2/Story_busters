@@ -40,10 +40,11 @@ module.exports = (db) => {
     // console.log()
 
     const userID = req.cookies.user_id
+    console.log(userID)
 
     if (!userID) {
-      res.send("please login to view this page")
-    }
+      res.send("You must be logged in to view this page")
+    } else {
 
     db.query(`
     SELECT content, stories.name, stories.id FROM stories JOIN users ON users.id = user_id WHERE is_complete = false AND users.id = ${userID} ORDER BY id DESC;
@@ -66,6 +67,8 @@ module.exports = (db) => {
         .status(500)
         .json({ error: err.message });
     });
+
+  }
 
 
   })

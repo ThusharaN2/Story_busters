@@ -12,6 +12,8 @@ module.exports = (db) => {
 
 
   router.get('/', (req, res) => {
+
+
     const userID = req.cookies.user_id
     console.log(userID)
     const templateVars = { userID }

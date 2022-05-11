@@ -8,13 +8,13 @@ const app = express();
 
 
 module.exports = (db) => {
-  // const userID = req.cookies.user_id
 
-  // if (!userID) {
-  //   res.send("please login to view this page")
-  // }
+
+
 
   router.get('/', (req, res) => {
+    // const userID = req.cookies.user_id
+
     db.query(`
     SELECT content, name, id FROM stories WHERE is_complete = false ORDER BY id DESC;
     SELECT additional_text, likes, story_id, id FROM proposed_additions ORDER BY id DESC;`)
