@@ -8,11 +8,16 @@ const app = express();
 
 
 module.exports = (db) => {
+  // const userID = req.cookies.user_id
+
+  // if (!userID) {
+  //   res.send("please login to view this page")
+  // }
 
   router.get('/', (req, res) => {
     db.query(`
-    SELECT content, name, id FROM stories WHERE is_complete = false ORDER BY id;
-    SELECT additional_text, likes, story_id, id FROM proposed_additions ORDER BY id;`)
+    SELECT content, name, id FROM stories WHERE is_complete = false ORDER BY id DESC;
+    SELECT additional_text, likes, story_id, id FROM proposed_additions ORDER BY id DESC;`)
     .then(data => {
       const storyDrafts = data[0].rows
       const proposedAdditions = data[1].rows
@@ -31,8 +36,8 @@ module.exports = (db) => {
   router.post('/', (req, res) => {
     console.log(res.req.body.upvote)
     db.query(`
-    SELECT content, name, id FROM stories WHERE is_complete = false ORDER BY id;
-    SELECT additional_text, likes, story_id, id FROM proposed_additions ORDER BY id;
+    SELECT content, name, id FROM stories WHERE is_complete = false ORDER BY id DESC;
+    SELECT additional_text, likes, story_id, id FROM proposed_additions ORDER BY id DESC;
     UPDATE proposed_additions SET likes = likes + 1 WHERE id = ${res.req.body.upvote};`)
     .then(data => {
       // console.log(data.rows)

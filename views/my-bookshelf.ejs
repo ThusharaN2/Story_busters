@@ -46,7 +46,7 @@
    <h1> My Bookshelf: </h1>
    <h2>Have things to say?</h2>
    <!-- Button not functional yet - will be href link! -->
-   <button name="make_new_story" type="submit">Make A New Story</button>
+   <a href="/create-new"> <button name="make_new_story" type="submit">Make a New Story</button> </a>
    <div>
     <h2>Unfinished Stories:</h2>
      <div>
@@ -58,7 +58,7 @@
         <div>
           Is this story finished?
           <!-- Button not functional yet - will be href link! -->
-          <button name="complete_story" type="submit">Mark It Complete!</button>
+          <a id ="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button name="mark_complete" type="submit">Mark Complete</button> </a>
         </div>
         <div>______</div>
         <h4>Want to add More?</h4>

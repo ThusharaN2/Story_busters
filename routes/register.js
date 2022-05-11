@@ -41,7 +41,7 @@ module.exports = (db) => {
    // const email = data.columns;
 
    res.cookie('user_id', user.id);
-    res.redirect("home");
+    res.redirect("/");
     // redirect to /users/profile
   })
   .catch(err => {
