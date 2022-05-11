@@ -25,3 +25,33 @@ h1{
     height:300px;
   }
 }
+.unfinishedstory {
+  font-family: "Abril Fatface";
+  text-align:center;
+  display:flex;
+  // width:80%;
+  // height:300px;
+  // padding-top:20px;
+  // padding-left:100px;
+  // padding-right:100px;
+  // gap:20px;
+  animation:fadeInDown;
+  animation-duration: 2s;
+}
+
+.addition {
+  border: 2px solid red;
+  width:100%;
+}
+
+.addtostorypage {
+  margin: 5px;
+  padding: 70px;
+}
+
+.stories {
+  margin: 20px;
+  padding: 40px;
+  border: 2px solid green;
+
+}
