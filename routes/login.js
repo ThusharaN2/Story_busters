@@ -1,34 +1,74 @@
 const express = require('express');
-const { password } = require('pg/lib/defaults');
 const router = express.Router();
-const { findUserByEmailAndPass } = require('../dbHelpers/serverHelpers')
-
-
+// const { findUserByEmailAndPass } = require('../dbHelpers/serverHelpers')
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-      res.render("login");
-      // res.status(200).send("login path is working");
+
+    res.render("login");
+    // res.status(200).send("login path is working");
   });
 
   router.post("/", (req, res) => {
-    const email = req.body.email
-    const password = req.body.password
-
-    findUserByEmailAndPass(email, password)
-    .then(user => {
-      console.log(user)
-        if (!user) {
-          return res.status(403).redirect('register');
-        } else {
-          return res.redirect("/home");
+    const { email, password } = req.body;
+    db.query(`SELECT * FROM users WHERE email = $1 AND password = $2 LIMIT 1;`, [email, password])
+    .then(users => {
+        console.log(users.rows);
+        const user = users.rows[0];
+        // const users = findUserByEmailAndPass(email, password);
+        if (user) {
+          console.log(user);
+          // req.session.usersID = user.id;
+          res.cookie('user_id', user.id);
+          res.redirect("/home");
         }
-    })
-
-  })
-
+        if (!user) {
+          res.send({ error: "error" })
+        }
+      })
+      .catch(err => res.send(err));
+  });
   return router;
 };
+    // .then((user) => {
+      // const user = findUserByEmailAndPass(email, password);
+      // if (user) {
+      //   req.session.userID = user.id;
+      //   res.redirect("/home");
+    //   }
+
+    // })
+    // const email = req.body.email
+    // const password = req.body.password
+    // .catch((err) => {
+    //     if (!email || !password) {
+    //       console.log(err);
+    //       return res.flash('error', 'Please Register');
+
+    //     } else {
+    //       return res.flash('error', 'Wrong username/password');
+    //     }
+    //   })
+
+
+
+//   })
+// }
+
+  // const loggedIn = findUserByEmailAndPass(email, password)
+  //   .then(user => {
+  //     console.log(user)
+  //       if (!loggedIn) {
+  //         return res.status(403).redirect('/register');
+  //       } else {
+  //         return res.redirect("home");
+  //       }
+  //   })
+
+  // })
+
+  // return router;
+
 
 
 
@@ -44,4 +84,4 @@ module.exports = (db) => {
   //     .catch(err => {
   //       res
   //         .status(500)
-  //         .json({ error: err.message });
+  //        .json({ error: err.message });

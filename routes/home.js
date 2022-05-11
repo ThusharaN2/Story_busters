@@ -20,6 +20,7 @@ module.exports = (db) => {
         }
     })
   })
+  return router;
 };
 
 // const userEmail = req.params.email;
