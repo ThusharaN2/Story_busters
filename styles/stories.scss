@@ -35,8 +35,9 @@ h1{
   // padding-left:100px;
   // padding-right:100px;
   // gap:20px;
-  animation:fadeInDown;
-  animation-duration: 2s;
+  padding: 4px 20%;
+  gap:10px;
+  flex-direction:column;
 }
 
 .addition {
