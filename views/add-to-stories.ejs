@@ -54,9 +54,9 @@
           <%= storyDrafts[draft].content %>
             <div class="unfinishedstory">
             <% for(let addition in proposedAdditions) { %>
-              <div class="addition">
-                <% if (proposedAdditions[addition].story_id===storyDrafts[draft].id) { %>
-                  <div>
+              <% if (proposedAdditions[addition].story_id===storyDrafts[draft].id) { %>
+                <div class="addition">
+                <div>
                     <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
                     <%= proposedAdditions[addition].additional_text %>
                       <%= proposedAdditions[addition].likes %>
@@ -66,9 +66,9 @@
                             value="<%= proposedAdditions[addition].id %>">Upvote</button>
                         </form>
                   </div>
-
-                  <% } %>
               </div>
+              <% } %>
+
               <% } %>
             </div>
                 <div>____________________</div>
