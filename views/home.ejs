@@ -52,94 +52,57 @@
       <br>
       <div class="container">
         <div class="storybox">
-          <h2>"Better Version"</h2>
-          I made the perfect you in my head
-          Cause physically you are the blueprint
-          But internally, well damn you're a mess
-          So to stay with you I had to imagine
-
-          That he is perfect
-          Anything I give him, he deserves it
-          Rarely does he ever come to see me
-          But anytime he does he makes it worth it
-          Like I earned it
+          <h2 class="storytitle"><%= story1.name %></h2>
+          <%= story1.content %>
+          <% if (story1.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
         <div class="storybox">
-          <h2>"Truth"</h2>
-          Truth is I'm dishonest
-          'Cause I'm always scared to get too deep
-          Truth is that I want this
-          'Cause I always see you in my sleep
-          Truth is that I love you, mm
-          Even when I'm trying not to
+          <h2 class="storytitle"><%= story2.name %></h2>
+          <%= story2.content %>
+          <% if (story2.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
         <div class="storybox">
-          <h2>"Messages to her"</h2>
-          If we could live in this moment
-          And just hold it
-          Keep my head on your chest
-          I'll never leave this bed
-
-          The flowers will be blooming
-          The leaves will be turning
-          And snow will be falling
-          While we're making love
-          And the sun will be shining
-          The flowers still are blooming
-          Then leaves will turn again
+          <h2 class="storytitle"><%= story3.name %></h2>
+          <%= story3.content %>
+          <% if (story3.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
+
+
       </div>
       <div class="container">
         <div class="storybox">
-          <h2>"Greendale"</h2>
-          ¿Dónde está la biblioteca?
-          Me llamo T-Bone
-          La araña discoteca
-          Discoteca, muñeca, la biblioteca
-          Es en bigote grande, perro, manteca
-          Manteca, bigote, gigante, pequeño
-          Cabeza es nieve
-          Cerveza es bueno
-          Buenos días, me gustas papas frías
-          Bigote de la cabra
-          Es Cameron Díaz
-          Yeah boy, boy
-          Yeah
-          What! It's 2009
-          Word
+          <h2 class="storytitle"><%= story4.name %></h2>
+          <%= story4.content %>
+          <% if (story4.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
-        <div class="storybox">
-          <h2>Story 3</h2>
-          If we could live in this moment
-          And just hold it
-          Keep my head on your chest
-          I'll never leave this bed
 
-          The flowers will be blooming
-          The leaves will be turning
-          And snow will be falling
-          While we're making love
-          And the sun will be shining
-          The flowers still are blooming
-          Then leaves will turn again
-        </div>
-        <div class="storybox">
-          <h2>Story 3</h2>
-          If we could live in this moment
-          And just hold it
-          Keep my head on your chest
-          I'll never leave this bed
 
-          The flowers will be blooming
-          The leaves will be turning
-          And snow will be falling
-          While we're making love
-          And the sun will be shining
-          The flowers still are blooming
-          Then leaves will turn again
+        <div class="storybox">
+          <h2 class="storytitle"><%= story5.name %></h2>
+          <%= story5.content %>
+          <% if (story5.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
+
+        <div class="storybox">
+          <h2 class="storytitle"><%= story6.name %></h2>
+          <%= story6.content %>
+          <% if (story6.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
+        </div>
+
       </div>
     </div>
 </body>
