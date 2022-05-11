@@ -1,4 +1,4 @@
-INSERT INTO stories (name, user_id, content) VALUES ('My Amazing Story', 1, 'Twas a dark and stormy night');
+INSERT INTO stories (name, user_id, content) VALUES ('My Amazing Story', 1, 'Twas a dark and stormy night. I was walking home from work after a long shift and decided to take a shortcut home. That was my first mistake. As I turned unto the next street, I could feel a cold shiver run down my spine. I had to look behind, I just had to.');
 INSERT INTO stories (name, user_id, content) VALUES ('My Tragic Story', 2, 'You''ll never guess what happened last night!');
 INSERT INTO stories (name, user_id, content) VALUES ('My Endless Story', 3, 'This is the longest story. Do you know why?');
 INSERT INTO stories (name, user_id, content) VALUES ('My Ended Story', 4, 'This story is almost done. ');
