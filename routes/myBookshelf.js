@@ -37,13 +37,18 @@ const findLastValue = function(string) {
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
+    // console.log()
 
-    const userID = req.originalUrl.slice(1, -13)
+    const userID = req.cookies.user_id
+
+    if (!userID) {
+      res.send("please login to view this page")
+    }
 
     db.query(`
-    SELECT content, stories.name, stories.id FROM stories JOIN users ON users.id = user_id WHERE is_complete = false AND users.id = ${userID} ORDER BY id;
+    SELECT content, stories.name, stories.id FROM stories JOIN users ON users.id = user_id WHERE is_complete = false AND users.id = ${userID} ORDER BY id DESC;
     SELECT additional_text, likes, story_id, id FROM proposed_additions WHERE is_used = false ORDER BY id;
-    SELECT content, stories.name, stories.id FROM stories JOIN users ON users.id = user_id WHERE is_complete = true AND users.id = ${userID} ORDER BY id;`)
+    SELECT content, stories.name, stories.id FROM stories JOIN users ON users.id = user_id WHERE is_complete = true AND users.id = ${userID} ORDER BY id DESC;`)
     .then(data => {
       const storyDrafts = data[0].rows
       const proposedAdditions = data[1].rows
@@ -69,7 +74,8 @@ module.exports = (db) => {
 
     const snippetID = findFirstValue(res.req.body.add);
     const mainStoryID = findLastValue(res.req.body.add);
-    let userID = req.originalUrl.slice(1, -13)
+    const userID = req.cookies.user_id
+
 
 
     db.query(`UPDATE stories
@@ -84,7 +90,7 @@ module.exports = (db) => {
       // console.log(data.rows)
       console.log(data)
 
-      res.redirect(`/${userID}/my-bookshelf`)
+      res.redirect(`/my-bookshelf`)
     })
     .catch(err => {
       res

@@ -62,7 +62,7 @@ app.use(
   const homeRoutes = require("./routes/home");
   const req = require("express/lib/request");
 
-  const myBookshelfRoutes = require("./routes/myBookshelf")
+  // const myBookshelfRoutes = require("./routes/myBookshelf")
   const addNewIdea = require("./routes/addNewIdea")
   const createNewStory = require("./routes/createNewStory")
   const markComplete = require("./routes/markComplete")
@@ -75,12 +75,12 @@ app.use("/login", loginRoutes(db));
 app.use("/widgets", widgetsRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/add-to-stories", addToStoriesRoutes(db));
-app.use("/:id/my-bookshelf", myBookshelfRoutes(db));
+app.use("/my-bookshelf", myBookshelfRoutes(db));
 
 app.use("/home", homeRoutes(db));
 
 app.use("/add-new-idea", addNewIdea(db));
-app.use("/:id/create-new", createNewStory(db));
+app.use("/create-new", createNewStory(db));
 app.use("/:id/tadaa", markComplete(db));
 
 
@@ -91,6 +91,7 @@ app.use("/:id/tadaa", markComplete(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
+  const userID = req.params.user_id;
   db.query(`
   SELECT content, name, id, is_complete FROM stories ORDER BY id DESC LIMIT 6;`)
   .then(data => {
@@ -103,7 +104,7 @@ app.get("/", (req, res) => {
     const isComplete = "✅"
     console.log(story1)
 
-    const templateVars = { story1, story2, story3, story4, story5, story6, isComplete }
+    const templateVars = { story1, story2, story3, story4, story5, story6, isComplete, userID }
     res.render('home', templateVars)
   })
   .catch(err => {

@@ -52,7 +52,7 @@ module.exports = (db) => {
       // const storyDrafts = data[0].rows
       // const proposedAdditions = data[1].rows
       // const templateVars = { storyDrafts, proposedAdditions}
-      res.redirect(`/${data[0].rows[0].id}/my-bookshelf`)
+      res.redirect(`/my-bookshelf`)
     })
     .catch(err => {
       res

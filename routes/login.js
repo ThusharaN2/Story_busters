@@ -20,7 +20,7 @@ module.exports = (db) => {
           console.log(user);
           // req.session.usersID = user.id;
           res.cookie('user_id', user.id);
-          res.redirect("/home");
+          res.redirect("/");
         }
         if (!user) {
           res.send({ error: "error" })

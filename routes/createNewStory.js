@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require("body-parser");
+const res = require('express/lib/response');
 // const { json } = require('express/lib/response');
 const router  = express.Router();
 const app = express();
@@ -10,9 +11,8 @@ const app = express();
 module.exports = (db) => {
 
 
-
   router.get('/', (req, res) => {
-    const userID = req.originalUrl.slice(1, -11)
+    const userID = req.cookies.user_id
     console.log(userID)
     const templateVars = { userID }
     res.render('../views/create-new-story', templateVars )
@@ -32,7 +32,7 @@ module.exports = (db) => {
     // console.log(userID)
     const title = res.req.body.title;
     const story = res.req.body.story;
-    const userID = res.req.body.add_new[0];
+    const userID = req.cookies.user_id;
     // console.log(res.req.body.add_new[0])
     // console.log(userID)
     db.query(`
@@ -51,7 +51,7 @@ module.exports = (db) => {
 
 
       const templateVars = { storyDrafts, proposedAdditions, completedStories, userID }
-      res.redirect(`/${userID}/my-bookshelf`)
+      res.redirect(`/my-bookshelf`)
 
 
 
