@@ -1,7 +1,7 @@
-INSERT INTO stories (name, user_id, content) VALUES ('My Amazing Story', 1, 'Twas a dark and stormy night. I was walking home from work after a long shift and decided to take a shortcut home. That was my first mistake. As I turned unto the next street, I could feel a cold shiver run down my spine. I had to look behind, I just had to.');
-INSERT INTO stories (name, user_id, content) VALUES ('My Tragic Story', 2, 'You''ll never guess what happened last night!');
-INSERT INTO stories (name, user_id, content) VALUES ('My Endless Story', 3, 'This is the longest story. Do you know why?');
-INSERT INTO stories (name, user_id, content) VALUES ('My Ended Story', 4, 'This story is almost done. ');
+INSERT INTO stories (name, user_id, content) VALUES ('Suburban Mystery', 1, 'Twas a dark and stormy night. I was walking home from work after a long shift and decided to take a shortcut home. That was my first mistake. As I turned unto the next street, I could feel a cold shiver run down my spine. I had to look behind, I just had to.');
+INSERT INTO stories (name, user_id, content) VALUES ('Just My Luck', 2, 'You''ll never guess what happened last night! I am still in disbelief about the whole matter. Never in my 25 years of life on this earth, did I ever think this could happen to me. I feel like I should just go buy a bunch of lottery tickets, that is how lucky I feel.');
+INSERT INTO stories (name, user_id, content) VALUES ('My Tennessee Story', 3, 'There is an old saying in Tennessee - I know it is in Texas, probably in Tennessee - that says, fool me once, shame on - shame on you. Fool me - you can not get fooled again. However... ');
+INSERT INTO stories (name, user_id, content) VALUES ('The New York Crimes', 4, 'One piece of advice I wish I listened to, is do not live in New York. It is fine for a weekend trip or just going through the city but living htere is another story. I was blinded by the paycheque and ignored all the advice I was given. You know what I learned about New York?');
 
 
 INSERT INTO stories (name, content, user_id, is_complete) VALUES ('A SUPER Original Story', 'This is the start of my original story. This is the end of my original story.', 2, true);
