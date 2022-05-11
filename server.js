@@ -71,7 +71,31 @@ app.use("/:id/tadaa", markComplete(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("home"); //home ?
+  db.query(`
+  SELECT content, name, id, is_complete FROM stories ORDER BY id DESC LIMIT 6;`)
+  .then(data => {
+    const story1 = data.rows[0]
+    const story2 = data.rows[1]
+    const story3 = data.rows[2]
+    const story4 = data.rows[3]
+    const story5 = data.rows[4]
+    const story6 = data.rows[5]
+    const isComplete = "✅"
+    console.log(story1)
+
+    const templateVars = { story1, story2, story3, story4, story5, story6, isComplete }
+    res.render('home', templateVars)
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+
+  // res.render("home"); //home ?
+
+
+
 });
 
 app.listen(PORT, () => {
