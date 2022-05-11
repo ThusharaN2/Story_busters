@@ -1,3 +1,8 @@
+$light-background: #918d88;
+$light-text: rgb(2, 35, 69);
+$dark-background: #4c5361;
+$dark-text: #f1f5f1;
+
 body {
   display: flex;
   justify-content: center;
@@ -29,3 +34,12 @@ font-family: "Squada One";
 }
 
 
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+}
