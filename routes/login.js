@@ -1,34 +1,82 @@
 const express = require('express');
-const { password } = require('pg/lib/defaults');
 const router = express.Router();
 const { findUserByEmailAndPass } = require('../dbHelpers/serverHelpers')
+// const cookieParser = require('cookie-parser')
+// const cookieSession = require('cookie-session')
 
 
-
+// router.use(cookieParser());
+// router.use(cookieSession({
+//   name: 'UserID',
+//   keys: ["secret"],
+//   // Cookie Options
+//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
+// }))
 module.exports = (db) => {
   router.get("/", (req, res) => {
-      res.render("login");
-      // res.status(200).send("login path is working");
+
+    // const templateVars = {
+    //   username: req.cookies["username"],
+    // }
+    res.render("login");
+    // res.status(200).send("login path is working");
   });
 
   router.post("/", (req, res) => {
-    const email = req.body.email
-    const password = req.body.password
-
-    findUserByEmailAndPass(email, password)
-    .then(user => {
-      console.log(user)
-        if (!user) {
-          return res.status(403).redirect('register');
-        } else {
-          return res.redirect("/home");
+    db.query(`SELECT * FROM users WHERE email = ? AND password = ?;`, email, password)
+      .then( user => {
+        const users = findUserByEmailAndPass(email, password);
+        console.log(users);
+        if (users) {
+          // req.session.userID = user.id;
+          res.redirect("/home");
         }
-    })
-
-  })
-
-  return router;
+        if (!users) {
+          res.send({ error: "error" })
+        }
+      })
+      .catch(err => res.send(err));
+  });
 };
+    // .then((user) => {
+      // const user = findUserByEmailAndPass(email, password);
+      // if (user) {
+      //   req.session.userID = user.id;
+      //   res.redirect("/home");
+    //   }
+
+    // })
+    // const email = req.body.email
+    // const password = req.body.password
+    // .catch((err) => {
+    //     if (!email || !password) {
+    //       console.log(err);
+    //       return res.flash('error', 'Please Register');
+
+    //     } else {
+    //       return res.flash('error', 'Wrong username/password');
+    //     }
+    //   })
+
+
+
+//   })
+// }
+
+  // const loggedIn = findUserByEmailAndPass(email, password)
+  //   .then(user => {
+  //     console.log(user)
+  //       if (!loggedIn) {
+  //         return res.status(403).redirect('/register');
+  //       } else {
+  //         return res.redirect("home");
+  //       }
+  //   })
+
+  // })
+
+  // return router;
+
 
 
 
@@ -44,4 +92,4 @@ module.exports = (db) => {
   //     .catch(err => {
   //       res
   //         .status(500)
-  //         .json({ error: err.message });
+  //        .json({ error: err.message });
