@@ -21,7 +21,7 @@ nav {
   z-index: 1;
 }
 
-.nav-link {
+.navbarSupportedContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,15 +34,46 @@ nav {
 }
 
 #storybusterslogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 1.5em;
   font-size: 3.5em;
   color: black;
   text-align: center;
-  height: 90vh;
+  height: 20vh;
   line-height: 90vh;
   color: #fcedd8;
   font-family: 'Abril Fatface', sans-serif;
   font-weight: 700;
   text-shadow: 5px 5px 0px #eb452b, 10px 10px 0px #efa032, 15px 15px 0px #46b59b, 20px 20px 0px #017e7f, 25px 25px 0px #052939, 30px 30px 0px #c11a2b;
+}
+
+#header .nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Squada One";
+  font-size: 1.25em;
+}
+
+#header .nav-link {
+  color: #6dcff6;
+}
+
+#header .nav-link:hover {
+  background: #cdeffc;
+}
+
+#header .nav-link:visited {
+  background: #0fafee;
 }
 /*# sourceMappingURL=nav.css.map */
