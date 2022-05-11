@@ -24,20 +24,24 @@ const cookieSession = require('cookie-session');
 // })
 
 module.exports = (db) => {
-  router.get("/register", (req, res) => {
+  router.get("/", (req, res) => {
 
     res.render("register");
     // redirect to /users/profile
   });
-  router.post("/register", (req, res) => {
-  const { email, password } = req.body
+  router.post("/", (req, res) => {
+  const { name, email, password } = req.body
 
   console.log(req.body);
 
-  db.query(`INSERT INTO users (email, password) VALUES (${email}, ${password}};`)
-  .then(data => {
+  db.query(`INSERT INTO users (name, email, password) VALUES ('${name}', '${email}', '${password}') RETURNING *;`)
+  .then(result => {
+    const user = result.rows[0];
+    console.log(user);
    // const email = data.columns;
-    res.redirect("users");
+
+   res.cookie('user_id', user.id);
+    res.redirect("home");
     // redirect to /users/profile
   })
   .catch(err => {
