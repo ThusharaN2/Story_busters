@@ -31,6 +31,7 @@ const findLastValue = function(string) {
   return finalString
 }
 
+
 // console.log(findLastValue("1234,12431243"))
 
 module.exports = (db) => {
@@ -52,7 +53,7 @@ module.exports = (db) => {
       console.table(completedStories)
 
 
-      const templateVars = { storyDrafts, proposedAdditions, completedStories }
+      const templateVars = { storyDrafts, proposedAdditions, completedStories, userID }
       res.render('../views/my-bookshelf', templateVars)
     })
     .catch(err => {
@@ -68,7 +69,8 @@ module.exports = (db) => {
 
     const snippetID = findFirstValue(res.req.body.add);
     const mainStoryID = findLastValue(res.req.body.add);
-    const userID = req.originalUrl.slice(1, -13)
+    let userID = req.originalUrl.slice(1, -13)
+
 
     db.query(`UPDATE stories
     SET content = CONCAT(stories.content, ' ', (
