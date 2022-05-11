@@ -7,8 +7,8 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-// const cookieParser = require('cookie-parser')
-// const cookieSession = require('cookie-session')
+const cookieParser = require('cookie-parser')
+const cookieSession = require('cookie-session')
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -27,13 +27,13 @@ db.connect();
 // app.use(loggger);
 app.use(morgan("dev"));
 
-// app.use(cookieParser());
-// app.use(cookieSession({
-//   name: 'UserID',
-//   keys: ["secret"],
-//   // Cookie Options
-//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
-// }))
+app.use(cookieParser());
+app.use(cookieSession({
+  name: 'UserID',
+  keys: ["secret"],
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
 
 
 app.set("view engine", "ejs");
@@ -64,14 +64,13 @@ app.use(
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
 app.use("/login", loginRoutes(db));
+app.use("/widgets", widgetsRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/add-to-stories", addToStoriesRoutes(db));
 app.use("/:id/my-bookshelf", myBookshelfRoutes(db));
 app.use("/home", homeRoutes(db));
 
-// app.use("/api/home", homeRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
