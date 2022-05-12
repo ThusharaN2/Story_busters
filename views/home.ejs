@@ -4,6 +4,7 @@
 <head>
   <!-- Meta Information -->
   <title>Story-Busters Home page</title>
+  <meta charset="UTF-8">
 
   <!--External CSS-->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -11,7 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,16 +39,13 @@
 
   <!--Custom JS-->
   <script defer type="text/javascript" src="/scripts/app.js"></script>
-
-
-
 </head>
 
 <body>
-  <!-- <div class="aboveheader">
-  </div> -->
+  <div>
+    <img class="above-header" src="https://thumbs.gfycat.com/EachNeglectedGoldfinch-size_restricted.gif">
+  </div>
   <%- include('partials/_header') %>
-
 
     <h1 class="page-title"> Take a look at our stories</h1>
 
@@ -56,67 +53,55 @@
       <br>
       <div class="container">
         <div class="storybox">
-          <h2 class="storytitle">
-            <%= story1.name %>
-          </h2>
+          <h2 class="storytitle" id="story_1"><%= story1.name %></h2>
           <%= story1.content %>
-            <% if (story1.is_complete) { %>
-              <%= isComplete %>
-                <% } %>
+          <% if (story1.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
         <div class="storybox">
-          <h2 class="storytitle">
-            <%= story2.name %>
-          </h2>
+          <h2 class="storytitle" id="story_2"><%= story2.name %></h2>
           <%= story2.content %>
-            <% if (story2.is_complete) { %>
-              <%= isComplete %>
-                <% } %>
+          <% if (story2.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
         <div class="storybox">
-          <h2 class="storytitle">
-            <%= story3.name %>
-          </h2>
+          <h2 class="storytitle" id="story_3" ><%= story3.name %></h2>
           <%= story3.content %>
-            <% if (story3.is_complete) { %>
-              <%= isComplete %>
-                <% } %>
+          <% if (story3.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
 
       </div>
       <div class="container">
         <div class="storybox">
-          <h2 class="storytitle">
-            <%= story4.name %>
-          </h2>
+          <h2 class="storytitle" id="story_4" ><%= story4.name %></h2>
           <%= story4.content %>
-            <% if (story4.is_complete) { %>
-              <%= isComplete %>
-                <% } %>
+          <% if (story4.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
 
         <div class="storybox">
-          <h2 class="storytitle">
-            <%= story5.name %>
-          </h2>
+          <h2 class="storytitle" id="story_5" ><%= story5.name %></h2>
           <%= story5.content %>
-            <% if (story5.is_complete) { %>
-              <%= isComplete %>
-                <% } %>
+          <% if (story5.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
         <div class="storybox">
-          <h2 class="storytitle">
-            <%= story6.name %>
-          </h2>
+          <h2 class="storytitle" id="story_6"><%= story6.name %></h2>
           <%= story6.content %>
-            <% if (story6.is_complete) { %>
-              <%= isComplete %>
-                <% } %>
+          <% if (story6.is_complete) { %>
+           <%= isComplete %>
+         <% } %>
         </div>
 
       </div>
