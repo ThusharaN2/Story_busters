@@ -41,52 +41,59 @@
   <script defer type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
-  <body>
-    <%- include('partials/_header') %>
+<body>
+  <%- include('partials/_header') %>
 
-   <h1> My Bookshelf: </h1>
-   <h4>Have things to say?</h4>
-   <!-- Button not functional yet - will be href link! -->
-   <a href="/create-new"> <button name="make_new_story" type="submit">Make a New Story</button> </a>
-   <div>
-    <h2 class="subsection">Unfinished Stories:</h2>
-     <div>
-       <!-- Shows draft stories -->
-   <% for(let draft in storyDrafts) { %>
-    <div class="what">
-    <h3 style="font-family:Abril Fatface"><%= storyDrafts[draft].name %> </h3>
-        <%= storyDrafts[draft].content %>
-      </div>
-       <div>
-          <a class="add-or-done">Is this story finished?</a>
-          <!-- Button not functional yet - will be href link! -->
-          <a id ="storyID" text-align="center"  href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button name="mark_complete" type="submit">Mark Complete</button> </a>
+    <h1> My Bookshelf: </h1>
+    <h4>Have things to say?</h4>
+    <!-- Button not functional yet - will be href link! -->
+    <a href="/create-new"> <button class= button name="make_new_story" type="submit">Make a New Story</button> </a>
+    <div>
+      <h2 class="subsection">Unfinished Stories:</h2>
+
+      <!-- Shows draft stories -->
+      <% for(let draft in storyDrafts) { %>
+        <div class="what">
+          <h3 style="font-family:Abril Fatface">
+            <%= storyDrafts[draft].name %>
+          </h3>
+          <%= storyDrafts[draft].content %>
+
+            <a class="add-or-done">Is this story finished?</a>
+            <!-- Button not functional yet - will be href link! -->
+            <a id="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button class= button name="mark_complete"
+                type="submit">Mark Complete</button> </a>
+
+            <h6>Want to add More?</h6>
+            <% for(let addition in proposedAdditions) { %>
+              <% if (proposedAdditions[addition].story_id===storyDrafts[draft].id) { %>
+
+
+
+                <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
+                <%= proposedAdditions[addition].additional_text %>
+                  <%= proposedAdditions[addition].likes %>
+                    <!-- Add button....needs to share proposedAdditions[addition].id and storyDrafts[draft].id...it links the add to the proper snippet -->
+                    <form action="" method="post">
+                      <button class= button name="add" type="submit"
+                        value="<%= [ proposedAdditions[addition].id, storyDrafts[draft].id] %>">Add To Story</button>
+                    </form>
         </div>
-        <h5>Want to add More?</h5>
-      </div>
-        <% for(let addition in proposedAdditions) { %>
-          <% if (proposedAdditions[addition].story_id === storyDrafts[draft].id) { %>
-            <div>
-            <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
-            <%= proposedAdditions[addition].additional_text  %>
-            <%= proposedAdditions[addition].likes %>
-            <!-- Add button....needs to share proposedAdditions[addition].id and storyDrafts[draft].id...it links the add to the proper snippet -->
-            <form action="" method="post">
-            <button name="add" type="submit" value="<%= [ proposedAdditions[addition].id, storyDrafts[draft].id] %>">Add To Story</button>
-            </form>
-          </div>
-
-          <% } %>
-      <% } %>
-        <h2 class= "subsection">Completed Stories:</h2>
-      <% } %>
-      <div class="completed">
-      <% for(let story in completedStories) { %>
-        <h3 style="font-family:Abril Fatface"><%= completedStories[story].name  %> </h3>
-        <%= completedStories[story].content %>
-
-            <% } %>
-          </div>
     </div>
-  </body>
+
+    <% } %>
+      <% } %>
+        <h2 class="subsection">Completed Stories:</h2>
+        <% } %>
+          <div class="completed">
+            <% for(let story in completedStories) { %>
+              <h3 style="font-family:Abril Fatface">
+                <%= completedStories[story].name %>
+              </h3>
+              <%= completedStories[story].content %>
+
+                <% } %>
+          </div>
+</body>
+
 </html>

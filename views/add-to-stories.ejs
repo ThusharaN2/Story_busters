@@ -47,40 +47,40 @@
     <h1> Add to Stories: </h1>
 
     <!-- Shows draft stories -->
-    <div class="addtostorypage">
-      <div class="stories">
+
       <% for(let draft in storyDrafts) { %>
-        <div>
-
-          <%= storyDrafts[draft].content %>
-            <div class="unfinishedstory">
-            <% for(let addition in proposedAdditions) { %>
-              <% if (proposedAdditions[addition].story_id===storyDrafts[draft].id) { %>
-                <div class="addition">
-                <div>
-                    <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
-                    <%= proposedAdditions[addition].additional_text %>
-                      <%= proposedAdditions[addition].likes %>
-                        <!-- Upvote button....needs to share proposedAdditions[addition].id...it links the upvote to the proper snippet -->
-                        <form action="" method="post">
-                          <button name="upvote" type="submit"
-                            value="<%= proposedAdditions[addition].id %>">Upvote</button>
-                        </form>
-                  </div>
-              </div>
-              <% } %>
-
-              <% } %>
-            </div>
-
-                <!-- still need to decide what this does...can maybe just be an href link to a submit page? -->
-               <a class="add-or-done" style="color:blue">Think you can write something better?</a>
-                <a id ="storyID" href="add-new-idea?id=<%=storyDrafts[draft].id%>"><button name="add_here" type="submit">Add here</button> </a>
-
-        </div>
-        <% } %>
+      <div class="drafts">
+        <%= storyDrafts[draft].content %>
       </div>
+
+        <div class="unfinishedstory">
+      <% for(let addition in proposedAdditions) { %>
+        <% if (proposedAdditions[addition].story_id===storyDrafts[draft].id) { %>
+
+          <div class="addition">
+            <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
+            <%= proposedAdditions[addition].additional_text %>
+              <%= proposedAdditions[addition].likes %>
+                <!-- Upvote button....needs to share proposedAdditions[addition].id...it links the upvote to the proper snippet -->
+                <form action="" method="post">
+                  <button name="upvote" type="submit" value="<%= proposedAdditions[addition].id %>">Upvote</button>
+                </form>
+
+          </div>
+          <% } %>
+
+            <% } %>
     </div>
+
+    <!-- still need to decide what this does...can maybe just be an href link to a submit page? -->
+    <a class="add-or-done" >Think you can write something better?</a>
+    <a id="storyID" href="add-new-idea?id=<%=storyDrafts[draft].id%>"><button style="font-family: Squada One" name="add_here" type="submit">Add
+        here</button> </a>
+
+    </div>
+    <% } %>
+      </div>
+      </div>
 </body>
 
 </html>

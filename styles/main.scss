@@ -3,6 +3,8 @@ $light-text: rgb(2, 35, 69);
 $dark-background: #4c5361;
 $dark-text: #f1f5f1;
 
+body { background-image:url('docs.space2gif.gif'); background-repeat:repeat; }
+
 body {
   display: flex;
   justify-content: center;
@@ -19,6 +21,7 @@ body {
     rgba(163, 208, 219, 1) 74%,
     rgba(163, 208, 219, 1) 100%
   );
+
 }
 nav
 {
