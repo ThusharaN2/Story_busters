@@ -47,13 +47,14 @@
     <h1> My Bookshelf: </h1>
     <h4>Have things to say?</h4>
     <!-- Button not functional yet - will be href link! -->
-    <a href="/create-new"> <button class= button name="make_new_story" type="submit">Make a New Story</button> </a>
+    <a href="/create-new"> <button class=button name="make_new_story" type="submit">Make a New Story</button> </a>
     <div>
       <h2 class="subsection">Unfinished Stories:</h2>
 
       <!-- Shows draft stories -->
       <% for(let draft in storyDrafts) { %>
         <div class="what">
+
           <h3 style="font-family:Abril Fatface">
             <%= storyDrafts[draft].name %>
           </h3>
@@ -61,8 +62,8 @@
 
             <a class="add-or-done">Is this story finished?</a>
             <!-- Button not functional yet - will be href link! -->
-            <a id="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button class= button name="mark_complete"
-                type="submit">Mark Complete</button> </a>
+            <a id="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button class=button
+                name="mark_complete" type="submit">Mark Complete</button> </a>
 
             <h6>Want to add More?</h6>
             <% for(let addition in proposedAdditions) { %>
@@ -75,9 +76,10 @@
                   <%= proposedAdditions[addition].likes %>
                     <!-- Add button....needs to share proposedAdditions[addition].id and storyDrafts[draft].id...it links the add to the proper snippet -->
                     <form action="" method="post">
-                      <button class= button name="add" type="submit"
+                      <button class=button name="add" type="submit"
                         value="<%= [ proposedAdditions[addition].id, storyDrafts[draft].id] %>">Add To Story</button>
                     </form>
+                  </div>
         </div>
     </div>
 
@@ -93,7 +95,8 @@
               <%= completedStories[story].content %>
 
                 <% } %>
-          </div>
+            </div>
+            </div>
 </body>
 
 </html>
