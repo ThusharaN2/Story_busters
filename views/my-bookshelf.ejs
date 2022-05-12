@@ -45,7 +45,7 @@
     <%- include('partials/_header') %>
 
    <h1> My Bookshelf: </h1>
-   <h2>Have things to say?</h2>
+   <h4>Have things to say?</h4>
    <!-- Button not functional yet - will be href link! -->
    <a href="/create-new"> <button name="make_new_story" type="submit">Make a New Story</button> </a>
    <div>
@@ -78,16 +78,15 @@
 
           <% } %>
       <% } %>
-      <div>____________________</div>
         <h2 class= "subsection">Completed Stories:</h2>
-      <div>____________________</div>
       <% } %>
       <div class="completed">
       <% for(let story in completedStories) { %>
         <h3 style="font-family:Abril Fatface"><%= completedStories[story].name  %> </h3>
         <%= completedStories[story].content %>
-      </div>
+
             <% } %>
+          </div>
     </div>
   </body>
 </html>

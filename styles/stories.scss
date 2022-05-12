@@ -8,7 +8,7 @@ h1{
   animation-duration: 2s;
 }
 
-//container that holds the storyboxes on main page
+//container that holds the 3 storyboxes on main page
 .container {
   display:flex;
   width:90%;
@@ -62,14 +62,32 @@ h1{
   font-family:"Squada One";
 }
 
+//scss fcn for shadow effect on title
+@function titleShadow($color) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 100 {
+    $val: #{$val}, -#{$i}px #{$i}px #{$color};
+  }
+  @return $val;
+}
+
 .subsection {
   font-family:"Squada One";
-  font-size: 30px;
-  background: -webkit-linear-gradient(#eee, rgb(105, 106, 177), pink);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  @include outline($grayLight);
-
+  // font-size: 30px;
+  // background: -webkit-linear-gradient(#eee, rgb(105, 106, 177), pink);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // @include outline($grayLight);
+  padding : 40px;
+  overflow:hidden;
+  margin: 0px auto;
+  font-weight: 300;
+  line-height: 10px;
+  font-size: 40px;
+  text-align: center;
+  font-size: 3rem;
+  color: #EDEEE9;
+  text-shadow: titleShadow(#3E3E40);
 }
 
 .completed {
@@ -81,23 +99,26 @@ h1{
   margin: 20px;
 }
 
+.social {
+  display: flex;
+  flex-direction:column;
+}
 
-
-  .fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-    margin: 5px 2px;
-
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  margin: 5px 2px;
   }
 
 .fa-reddit {
   background: #ff5700;
   color: white;
 }
+
 .fa-facebook {
   background: #3B5998;
   color: white;
@@ -114,8 +135,4 @@ h1{
 .fa:hover {
   opacity: 0.7;
 }
-.social {
-  display: flex;
-  flex-direction:column;
 
-}
