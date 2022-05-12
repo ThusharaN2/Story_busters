@@ -44,28 +44,29 @@
 <body>
   <%- include('partials/_header') %>
 
-    <h1> My Bookshelf: </h1>
-    <h4>Have things to say?</h4>
+    <h1> MY BOOKSHELF </h1>
+    <!-- <h4>Got New Ideas?</h4> -->
     <!-- Button not functional yet - will be href link! -->
-    <a href="/create-new"> <button class=button name="make_new_story" type="submit">Make a New Story</button> </a>
+    <a href="/create-new"> <button class= button name="make_new_story" type="submit" style="font-size: medium; border-style: double;"> <em>⭐ MAKE NEW STORY ⭐</em></button> </a>
     <div>
-      <h2 class="subsection">Unfinished Stories:</h2>
+      <h2 class="subsection">Unfinished Stories</h2>
 
       <!-- Shows draft stories -->
       <% for(let draft in storyDrafts) { %>
+        <p></p>
         <div class="what">
-
           <h3 style="font-family:Abril Fatface">
-            <%= storyDrafts[draft].name %>
+            <p style="border-style: double;"><%= storyDrafts[draft].name %></p>
           </h3>
-          <%= storyDrafts[draft].content %>
-
-            <a class="add-or-done">Is this story finished?</a>
+          <p><%= storyDrafts[draft].content %></p>
+          <p></p>
+            <p><a class="add-or-done">Is this Finished?</a>
             <!-- Button not functional yet - will be href link! -->
-            <a id="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button class=button
-                name="mark_complete" type="submit">Mark Complete</button> </a>
-
-            <h6>Want to add More?</h6>
+            <a id="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button class= button name="mark_complete" style="border-style: dashed;"
+                type="submit">MARK COMPLETE &#x2713</button> </a>
+              </p>
+              <p>___________________________________</p>
+            <h4><em>OTHER IDEAS</em></h4>
             <% for(let addition in proposedAdditions) { %>
               <% if (proposedAdditions[addition].story_id===storyDrafts[draft].id) { %>
 
@@ -73,20 +74,20 @@
 
                 <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
                 <%= proposedAdditions[addition].additional_text %>
-                  <%= proposedAdditions[addition].likes %>
+                <p style="font-size: small"><em><%= proposedAdditions[addition].likes %> Likes </em></p>
                     <!-- Add button....needs to share proposedAdditions[addition].id and storyDrafts[draft].id...it links the add to the proper snippet -->
                     <form action="" method="post">
-                      <button class=button name="add" type="submit"
+                      <button class= button name="add" type="submit"
                         value="<%= [ proposedAdditions[addition].id, storyDrafts[draft].id] %>">Add To Story</button>
                     </form>
-                  </div>
         </div>
     </div>
 
     <% } %>
       <% } %>
-        <h2 class="subsection">Completed Stories:</h2>
+
         <% } %>
+        <h2 class="subsection">Completed Stories</h2>
           <div class="completed">
             <% for(let story in completedStories) { %>
               <h3 style="font-family:Abril Fatface">
@@ -95,8 +96,7 @@
               <%= completedStories[story].content %>
 
                 <% } %>
-            </div>
-            </div>
+          </div>
 </body>
 
 </html>

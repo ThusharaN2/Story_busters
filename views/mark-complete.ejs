@@ -45,14 +45,14 @@
     <%- include('partials/_header') %>
 
 
-   <h1> Tadaa! You Completed Your Story! </h1>
+   <h1> Are you SURE It's Done? </h1>
    <div>
     <h3><%= title %></h3>
     <%= story %>
    </div>
     <div>
       <form action="/:id/tadaa" method="POST">
-        <button name ="complete" type="submit" value="<%= storyID %>" >YES, THIS IS MY FINAL ANSWER</button>
+        <button name ="complete" type="submit" value="<%= storyID %>" style="border-style: double;" >⭐ YES, I LOVE IT ⭐</button>
       </form>
 
 
