@@ -1,12 +1,18 @@
 $pinkGrayed	: #d38076;
 $color: red;
+$main-font: "Squada One";
 
-//title of all pages
+//title of all pages w/animation
 h1{
   text-align:center;
-  font-family:"Squada One";
+  font-family: $main-font;
   animation:fadeInDown;
   animation-duration: 2s;
+}
+
+//title of incomplete stories
+h2{
+  font-family:$main-font;
 }
 
 //container that holds the 3 storyboxes on main page
@@ -58,7 +64,7 @@ h1{
 //Think you can do better
 .add-or-done {
   margin:2px;
-  font-family:"Squada One";
+  font-family:$main-font;
   display:flex;
   flex-direction:column;
   text-align: center;
@@ -78,7 +84,7 @@ h1{
 }
 
 .subsection {
-  font-family:"Squada One";
+  font-family:$main-font;
   padding : 40px;
   overflow:hidden;
   margin: 0px auto;
