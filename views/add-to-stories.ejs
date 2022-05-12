@@ -44,41 +44,45 @@
 
 <body>
   <%- include('partials/_header') %>
-
-    <h2> Add to Stories: </h2>
+  <p></p>
+  <p></p>
+    <h2> Incomplete Stories </h2>
 
     <!-- Shows draft stories -->
 
       <% for(let draft in storyDrafts) { %>
       <div class="drafts">
+        <p></p>
         <%= storyDrafts[draft].content %>
 
 
         <div class="unfinishedstory">
       <% for(let addition in proposedAdditions) { %>
         <% if (proposedAdditions[addition].story_id===storyDrafts[draft].id) { %>
+          <div>____________________</div>
 
           <div class="addition">
             <!-- Shows associated proposed additions....needs to be nested within the storyDrafts loop -->
             <%= proposedAdditions[addition].additional_text %>
-              <%= proposedAdditions[addition].likes %>
+            <p style="font-size: small"><em><%= proposedAdditions[addition].likes %> Likes</em></p>
                 <!-- Upvote button....needs to share proposedAdditions[addition].id...it links the upvote to the proper snippet -->
                 <!-- <form action="" method="post"> -->
-                  <br>
-                  <button name="upvote" type="submit" class="upvote" data-upvoteID="<%= proposedAdditions[addition].id %>">Upvote</button>
+                  <button name="upvote" type="submit" class="upvote" data-upvoteID="<%= proposedAdditions[addition].id %>">⭐ UPVOTE ⭐</button>
                 <!-- </form> -->
 
           </div>
           <% } %>
 
             <% } %>
+
+            <div>____________________</div>
           </div>
+          <a class="add-or-done" >Want to Add On?</a>
+          <a id="storyID" href="add-new-idea?id=<%=storyDrafts[draft].id%>" ><button style="font-family: Squada One" name="add_here" type="submit">&#8594 ADD HERE &#8592 </button> </a>
+          <p></p>
+          <p></p>
     </div>
 
-    <!-- still need to decide what this does...can maybe just be an href link to a submit page? -->
-    <a class="add-or-done" >Think you can write something better?</a>
-    <a id="storyID" href="add-new-idea?id=<%=storyDrafts[draft].id%>"><button style="font-family: Squada One" name="add_here" type="submit">Add
-        here</button> </a>
 
     </div>
     <% } %>
