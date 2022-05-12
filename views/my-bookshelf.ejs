@@ -53,16 +53,16 @@
      <div>
        <!-- Shows draft stories -->
    <% for(let draft in storyDrafts) { %>
+    <div class="what">
     <h3 style="font-family:Abril Fatface"><%= storyDrafts[draft].name %> </h3>
         <%= storyDrafts[draft].content %>
-        <div>______</div>
-        <div>
+      </div>
+       <div>
           <a class="add-or-done">Is this story finished?</a>
           <!-- Button not functional yet - will be href link! -->
-          <a id ="storyID" href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button name="mark_complete" type="submit">Mark Complete</button> </a>
+          <a id ="storyID" text-align="center"  href="/<%=userID%>/tadaa?id=<%=storyDrafts[draft].id%>"><button name="mark_complete" type="submit">Mark Complete</button> </a>
         </div>
-        <div>______</div>
-        <h4>Want to add More?</h4>
+        <h5>Want to add More?</h5>
       </div>
         <% for(let addition in proposedAdditions) { %>
           <% if (proposedAdditions[addition].story_id === storyDrafts[draft].id) { %>
