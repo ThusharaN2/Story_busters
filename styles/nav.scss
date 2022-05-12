@@ -1,4 +1,4 @@
-$main-color: #6dcff6;
+$main-color: #d78ce0;
 $darker-color: darken($main-color, 20%);
 $lighter-color: lighten($main-color, 20%);
 
@@ -32,15 +32,15 @@ nav {
 	    text-align: center;
       height: 20vh;
       line-height: 90vh;
-	    color: #6dcff6;
+	    color: #d78ce0;
 	   	font-family: 'Abril Fatface', sans-serif;
 	    font-weight: 700;
-      text-shadow: 5px 5px 0px #0d3657,
+      text-shadow: 5px 5px 0px #5e114d,
                   10px 10px 0px #7472c0,
-                  15px 15px 0px #c977a7,
+                  15px 15px 0px #943a9c,
                   20px 20px 0px #b589d3,
-                  25px 25px 0px #ddade9,
-                  30px 30px 0px #d46b75
+                  25px 25px 0px #7347b9,
+                  30px 30px 0px #31060b
 
 }
 #header {
