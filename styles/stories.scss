@@ -57,13 +57,13 @@ h1{
 
 //Think you can do better
 .add-or-done {
-  margin:1%;
+  margin:2px;
   font-family:"Squada One";
   display:flex;
   flex-direction:column;
   text-align: center;
   color: white;
-  font-size: 20px ;
+  font-size: 30px ;
   text-shadow: -1px -1px 0 #000;
   }
 
@@ -107,12 +107,12 @@ button {
   --btn-color: rgb(100, 61, 136);
   border: .2em solid var(--glow-color);
   padding: 1em 1em;
+  margin:10px;
   color: var(--glow-color);
   font-size: 12px;
   background-color: var(--btn-color);
   border-radius: 2em;
   box-shadow: 0 0 1em .2em var(--glow-color),
-         0 0 4em 1em var(--glow-spread-color),
  }
  button:hover {
   color: var(--btn-color);
