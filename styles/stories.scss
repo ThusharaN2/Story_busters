@@ -60,6 +60,9 @@ h1{
 
 .add-or-done {
   font-family:"Squada One";
+  display:flex;
+  flex-direction:column;
+  text-align: center;
 }
 
 //scss fcn for shadow effect on title
@@ -88,6 +91,14 @@ h1{
   font-size: 3rem;
   color: #EDEEE9;
   text-shadow: titleShadow(#3E3E40);
+}
+.what {
+  display:flex;
+  text-align:center;
+  padding: 10px 20%;
+  gap:20px;
+  flex-direction:column;
+  margin: 20px;
 }
 
 .completed {
