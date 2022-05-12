@@ -39,43 +39,49 @@ h1{
   // padding-left:100px;
   // padding-right:100px;
   // gap:20px;
-  padding: 4px 20%;
-  gap:10px;
+  padding: 8px 20%;
+  gap:20px;
   flex-direction:column;
 }
 
 //upvotes
 .addition {
-  border: 2px solid palegreen;
   width:100%;
 
 }
-
-.button {
-  border:2px solid green;
-}
-
-.addtostorypage {
-  margin: 5px;
-  padding: 70px;
-}
-
-.stories {
-  margin: 20px;
-  padding: 40px;
-
+.drafts {
+  margin:5%;
+  width:80%;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 
+
+// .addtostorypage {
+//   margin: 5px;
+//   padding: 80px;
+// }
+
+// .stories {
+//   margin: 20px;
+//   padding: 60px;
+
+// }
+
+
+//Think you can do better ?
 .add-or-done {
+  margin:1%;
   font-family:"Squada One";
   display:flex;
   flex-direction:column;
   text-align: center;
-
-
+  color: white;
+  font-size: 20px ;
+  text-shadow: -1px -1px 0 #000;
   }
-}
+
 
 //scss fcn for shadow effect on title
 @function titleShadow($color) {
@@ -88,21 +94,16 @@ h1{
 
 .subsection {
   font-family:"Squada One";
-  // font-size: 30px;
-  // background: -webkit-linear-gradient(#eee, rgb(105, 106, 177), pink);
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
-  // @include outline($grayLight);
   padding : 40px;
   overflow:hidden;
   margin: 0px auto;
   font-weight: 300;
-  line-height: 10px;
+  line-height: 20px;
   font-size: 40px;
   text-align: center;
   font-size: 3rem;
   color: #EDEEE9;
-  text-shadow: titleShadow(#3E3E40);
+  text-shadow: titleShadow(#45454b);
 }
 .what {
   display:flex;
