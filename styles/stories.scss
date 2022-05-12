@@ -9,6 +9,7 @@ h1{
   animation-duration: 2s;
 }
 
+
 //container that holds the 3 storyboxes on main page
 .container {
   display:flex;
@@ -29,6 +30,8 @@ h1{
   }
 
 }
+
+
 .unfinishedstory {
   font-family: "Abril Fatface";
   text-align:center;
@@ -40,7 +43,7 @@ h1{
   // padding-right:100px;
   // gap:20px;
   padding: 8px 20%;
-  gap:20px;
+  gap:30px;
   flex-direction:column;
 }
 
@@ -114,6 +117,42 @@ h1{
   margin: 20px;
 }
 
+
+//button effect glow
+button {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .2em solid var(--glow-color);
+  padding: 1em 1em;
+  color: var(--glow-color);
+  font-size: 10px;
+  background-color: var(--btn-color);
+  border-radius: 2em;
+  box-shadow: 0 0 1em .2em var(--glow-color),
+         0 0 4em 1em var(--glow-spread-color),
+         inset 0 0 .25em .15em var(--glow-color);
+  text-shadow: 0 0 .1em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+
+ }
+ button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+         0 0 2em 1em var(--glow-spread-color),
+         inset 0 0 .75em .25em var(--glow-color);
+ }
+
+ button::after {
+  pointer-events: none;
+  position: absolute;
+  filter: blur(2em);
+  opacity: .2;
+ }
+
 .completed {
   display:flex;
   text-align:center;
@@ -126,7 +165,7 @@ h1{
 /* socialmedia links */
 .social {
   display: flex;
-  flex-direction:column;
+  flex-direction:flex-start;
 }
 
 .fa {
