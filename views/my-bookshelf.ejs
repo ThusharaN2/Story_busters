@@ -58,7 +58,7 @@
           <h3 style="font-family:Abril Fatface">
             <p style="border-style: double;"><%= storyDrafts[draft].name %></p>
           </h3>
-          <p><%= storyDrafts[draft].content %></p>
+          <%= storyDrafts[draft].content %>
           <p></p>
             <p><a class="add-or-done">Is this Finished?</a>
             <!-- Button not functional yet - will be href link! -->
@@ -81,9 +81,10 @@
                         value="<%= [ proposedAdditions[addition].id, storyDrafts[draft].id] %>">Add To Story</button>
                     </form>
         </div>
-    </div>
+    <!-- </div> -->
 
     <% } %>
+  </div>
       <% } %>
 
         <% } %>
