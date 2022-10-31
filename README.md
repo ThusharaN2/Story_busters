@@ -1,5 +1,12 @@
 Story Busters
 =========
+  Story Busters is an interactive platform where users can share their stories for others to enjoy. The other users also have the option to add-on to those stories, if the author accepts their draft. Users are able to read stories on their main page, create new stories, vote for which drafts they like and like the stories itself. 
+  
+## Live App
+The app is deployed on Render at: 
+
+Note: Some bug fixes of the site are in progress.
+
 
 ## Project Setup
 
